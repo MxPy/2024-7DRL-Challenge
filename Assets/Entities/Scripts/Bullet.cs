@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    Vector3 shootDir;
+    public float moveSpeed = 10f;
+
+    public void Setup(Vector3 shootDir){
+        this.shootDir = shootDir;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    private void Update() {
         
+        transform.position += shootDir * moveSpeed * Time.deltaTime;
     }
 }

@@ -43,26 +43,26 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void shoot(uint direction){
-        Transform bulletInstance = SpawnBullet(direction);
-    }
-
-    Transform SpawnBullet(uint direction){
-        Transform bulletInstance = null;
+        Bullet bulletInstance = null;
         switch(direction){
             case 0:
-                bulletInstance = Instantiate(bullet,transform.position+Vector3.left, transform.rotation).transform;
+                bulletInstance = Instantiate(bullet,transform.position+Vector3.left, transform.rotation).GetComponent<Bullet>();
+                bulletInstance.Setup(Vector3.left);
                 break;
             case 1:
-                bulletInstance = Instantiate(bullet,transform.position+Vector3.up, transform.rotation).transform;
+                bulletInstance = Instantiate(bullet,transform.position+Vector3.up, transform.rotation).GetComponent<Bullet>();
+                bulletInstance.Setup(Vector3.up);
                 break;
             case 2:
-                bulletInstance = Instantiate(bullet,transform.position+Vector3.right, transform.rotation).transform;
+                bulletInstance = Instantiate(bullet,transform.position+Vector3.right, transform.rotation).GetComponent<Bullet>();
+                bulletInstance.Setup(Vector3.right);
                 break;
             case 3:
-                bulletInstance = Instantiate(bullet,transform.position+Vector3.down, transform.rotation).transform;
+                bulletInstance = Instantiate(bullet,transform.position+Vector3.down, transform.rotation).GetComponent<Bullet>();
+                bulletInstance.Setup(Vector3.down);
                 break;
             }
-            return bulletInstance;
+           
     }
 
 }
