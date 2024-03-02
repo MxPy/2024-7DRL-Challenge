@@ -10,7 +10,7 @@ public class SceneChange : MonoBehaviour
         LevelChange level = cameraPrefab.GetComponent<LevelChange>();
         if (other.CompareTag("Player")){
             Debug.Log("bef function");
-            level.CameraMove();
+            level.CameraMove2();
             Debug.Log("af function");
         }
         else{

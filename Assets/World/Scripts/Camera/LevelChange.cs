@@ -5,6 +5,7 @@ using UnityEngine;
 public class LevelChange : MonoBehaviour
 {
     public Transform newPlacement;
+    public Transform[] placementsList;
     void Start()
     {
         
@@ -13,6 +14,10 @@ public class LevelChange : MonoBehaviour
     void Update()
     {
         
+    }
+
+    int RandomLevel(int min, int max){
+        return Random.Range(min, max + 1);
     }
 
     public void CameraMove(){
@@ -25,4 +30,17 @@ public class LevelChange : MonoBehaviour
         transform.rotation = newPlacement.rotation;
         transform.localScale = newPlacement.localScale;
     }
+
+    public void CameraMove2(){
+        int num = RandomLevel(0,3);
+        if(placementsList[num] == null){
+            Debug.LogError("No transform");
+            return;
+        }
+        Debug.Log("transform");
+        transform.position = placementsList[num].position;
+        transform.rotation = placementsList[num].rotation;
+        transform.localScale = placementsList[num].localScale;
+    }
+    
 }
