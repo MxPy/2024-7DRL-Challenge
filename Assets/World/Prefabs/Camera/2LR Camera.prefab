@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4009d69a5a426a4987c721b84e77e29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraPrefab: {fileID: 786233438994695806, guid: be06243f18f4a0347b65947719b7527b, type: 3}
+  cameraPrefab: {fileID: 786233438994695806, guid: e4244d13b36ca4847853c52adbf8a87a, type: 3}
 --- !u!1 &786233438994695806
 GameObject:
   m_ObjectHideFlags: 0
@@ -99,7 +99,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 786233438994695806}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 5, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -249,4 +249,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4009d69a5a426a4987c721b84e77e29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraPrefab: {fileID: 786233438994695806}
+  cameraPrefab: {fileID: 786233438994695806, guid: be06243f18f4a0347b65947719b7527b, type: 3}
