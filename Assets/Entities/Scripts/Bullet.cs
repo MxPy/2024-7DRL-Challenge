@@ -5,10 +5,14 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     Vector3 shootDir;
+    int dmgValue;
+    float stunTime;
     public float moveSpeed = 10f;
 
-    public void Setup(Vector3 shootDir){
+    public void Setup(Vector3 shootDir, int dmgValue, float stunTime){
         this.shootDir = shootDir;
+        this.dmgValue = dmgValue;
+        this.stunTime = stunTime;
         transform.eulerAngles = new Vector3(0,0, GetAngleFromVectorFloat(shootDir) -90);
     }
 
@@ -27,5 +31,8 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
             Destroy(gameObject);
+            if(other.tag == "EnemyCloseRange"){
+                other.GetComponent<EnemyCloseRange>().Damage(dmgValue, stunTime);
+            }
     }
 }

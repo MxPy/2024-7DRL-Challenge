@@ -61,19 +61,19 @@ public class PlayerMovement : MonoBehaviour
         switch(direction){
             case 0:
                 bulletInstance = Instantiate(bullet,transform.position+Vector3.left, transform.rotation).GetComponent<Bullet>();
-                bulletInstance.Setup(Vector3.left);
+                bulletInstance.Setup(Vector3.left, 2, 0.2f);
                 break;
             case 1:
                 bulletInstance = Instantiate(bullet,transform.position+Vector3.up, transform.rotation).GetComponent<Bullet>();
-                bulletInstance.Setup(Vector3.up);
+                bulletInstance.Setup(Vector3.up, 2, 0.2f);
                 break;
             case 2:
                 bulletInstance = Instantiate(bullet,transform.position+Vector3.right, transform.rotation).GetComponent<Bullet>();
-                bulletInstance.Setup(Vector3.right);
+                bulletInstance.Setup(Vector3.right, 2, 0.2f);
                 break;
             case 3:
                 bulletInstance = Instantiate(bullet,transform.position+Vector3.down, transform.rotation).GetComponent<Bullet>();
-                bulletInstance.Setup(Vector3.down);
+                bulletInstance.Setup(Vector3.down, 2, 0.2f);
                 break;
             }
            
