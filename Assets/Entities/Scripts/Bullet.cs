@@ -9,15 +9,18 @@ public class Bullet : MonoBehaviour
     float stunTime;
     public float moveSpeed = 10f;
 
-    public void Setup(Vector3 shootDir, int dmgValue, float stunTime){
+    public void Setup(Vector3 shootDir, int dmgValue, float stunTime, float moveSpeed = 10f){
         this.shootDir = shootDir;
         this.dmgValue = dmgValue;
         this.stunTime = stunTime;
-        transform.eulerAngles = new Vector3(0,0, GetAngleFromVectorFloat(shootDir) -90);
+        this.moveSpeed = moveSpeed;
+        Debug.Log("SETUP:" + shootDir);
+        transform.eulerAngles = new Vector3(0,0, GetAngleFromVectorFloat(shootDir) - 90);
     }
 
     private void Update() {
         transform.position += shootDir * moveSpeed * Time.deltaTime;
+        Debug.Log("UPDATE:" + transform.position);
         Destroy(gameObject, 5f);
     }
 

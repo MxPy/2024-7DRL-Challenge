@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 38198003}
   - component: {fileID: 38198002}
   - component: {fileID: 38198001}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: enemy (1)
   m_TagString: EnemyLongRange
   m_Icon: {fileID: 0}
@@ -160,6 +160,7 @@ MonoBehaviour:
   speed: 3.5
   range: 5
   multiplier: 1
+  bullet: {fileID: 984152504724513482, guid: 052f1bc5bd688ed429f72ffe39ead183, type: 3}
 --- !u!61 &38198002
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -268,7 +269,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 38198000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.75, y: 3.58, z: 0}
+  m_LocalPosition: {x: 6.45, y: 1.36, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -451,13 +452,13 @@ GameObject:
   - component: {fileID: 837732381}
   - component: {fileID: 837732380}
   - component: {fileID: 837732382}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: enemy
   m_TagString: EnemyCloseRange
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &837732378
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -958,7 +959,7 @@ GameObject:
   - component: {fileID: 1609142846}
   - component: {fileID: 1609142845}
   - component: {fileID: 1609142847}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: player
   m_TagString: Player
   m_Icon: {fileID: 0}
