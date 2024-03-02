@@ -14,13 +14,13 @@ public class Bullet : MonoBehaviour
         this.dmgValue = dmgValue;
         this.stunTime = stunTime;
         this.moveSpeed = moveSpeed;
-        Debug.Log("SETUP:" + shootDir);
+        //Debug.Log("SETUP:" + shootDir);
         transform.eulerAngles = new Vector3(0,0, GetAngleFromVectorFloat(shootDir) - 90);
     }
 
     private void Update() {
         transform.position += shootDir * moveSpeed * Time.deltaTime;
-        Debug.Log("UPDATE:" + transform.position);
+        //Debug.Log("UPDATE:" + transform.position);
         Destroy(gameObject, 5f);
     }
 
