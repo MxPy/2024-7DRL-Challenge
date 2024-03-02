@@ -10,8 +10,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float speed = 2.5f;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] GameObject bullet;
+    VariableTimer attackTimer;
     //public Animator animator;
     Vector2 movement;
+
+    private void Start() {
+        attackTimer = gameObject.AddComponent(typeof(VariableTimer)) as VariableTimer;
+    }
     
     void Update()
     {
@@ -23,18 +28,27 @@ public class PlayerMovement : MonoBehaviour
         //animator.SetFloat("Vertical", movement.y);
         //animator.SetFloat("Speed", movement.sqrMagnitude);
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow)){
+        //TODO: change attack cooldown time
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && attackTimer.started == false){
+            attackTimer.StartTimer(1);
            shoot(0);
         } 
-        else if (Input.GetKeyDown(KeyCode.UpArrow)){
+        else if (Input.GetKeyDown(KeyCode.UpArrow) && attackTimer.started == false){
+            attackTimer.StartTimer(1);
            shoot(1);
         } 
-        else if (Input.GetKeyDown(KeyCode.RightArrow)){
+        else if (Input.GetKeyDown(KeyCode.RightArrow) && attackTimer.started == false){
+            attackTimer.StartTimer(1);
            shoot(2);
         } 
-        else if (Input.GetKeyDown(KeyCode.DownArrow)){
+        else if (Input.GetKeyDown(KeyCode.DownArrow) && attackTimer.started == false){
+            attackTimer.StartTimer(1);
            shoot(3);
         } 
+
+        if(attackTimer.finished){
+            attackTimer.ResetTimer();
+        }
     }
 
     private void FixedUpdate() {
