@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - EnemyCloseRange
+  - EnemyLongRange
   layers:
   - Default
   - TransparentFX
