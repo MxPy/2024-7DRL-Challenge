@@ -8,8 +8,9 @@ public class Bullet : MonoBehaviour
     int dmgValue;
     float stunTime;
     public float moveSpeed = 10f;
+    bool playerOrEnemy;
 
-    public void Setup(Vector3 shootDir, int dmgValue, float stunTime, float moveSpeed = 10f){
+    public void Setup(Vector3 shootDir, int dmgValue, float stunTime, float moveSpeed = 10f, bool playerOrEnemy = true){
         this.shootDir = shootDir;
         this.dmgValue = dmgValue;
         this.stunTime = stunTime;
@@ -34,8 +35,10 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
             Destroy(gameObject);
-            if(other.tag == "EnemyCloseRange"){
+            if(playerOrEnemy && (other.tag == "EnemyCloseRange" || other.tag == "EnemyLongRange")){
                 other.GetComponent<EnemyCloseRange>().Damage(dmgValue, stunTime);
+            }else if(!playerOrEnemy && other.tag == "Player"){
+                other.GetComponent<PlayerMovement>().Damage(dmgValue, stunTime);
             }
     }
 }

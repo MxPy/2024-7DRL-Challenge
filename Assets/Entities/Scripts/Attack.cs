@@ -8,10 +8,14 @@ public class Attack : MonoBehaviour
     int dmgValue;
     float stunTime;
 
-    public void Setup(Vector3 attackDir, int dmgValue, float stunTime, float moveSpeed = 10f){
+    //true player, false enemy
+    bool playerOrEnemy;
+
+    public void Setup(Vector3 attackDir, int dmgValue, float stunTime, bool playerOrEnemy = true){
         this.attackDir = attackDir;
         this.dmgValue = dmgValue;
         this.stunTime = stunTime;
+        this.playerOrEnemy = playerOrEnemy;
         //Debug.Log("SETUP:" + shootDir);
         transform.eulerAngles = new Vector3(0,0, GetAngleFromVectorFloat(attackDir));
     }
@@ -30,8 +34,11 @@ public class Attack : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-            if(other.tag == "EnemyCloseRange"){
-                //other.GetComponent<EnemyCloseRange>().Damage(dmgValue, stunTime);
+            //Debug.Log("chuj");
+            if(playerOrEnemy && (other.tag == "EnemyCloseRange" || other.tag == "EnemyLongRange")){
+                other.GetComponent<EnemyCloseRange>().Damage(dmgValue, stunTime);
+            }else if(!playerOrEnemy && other.tag == "Player"){
+                other.GetComponent<PlayerMovement>().Damage(dmgValue, stunTime);
             }
     }
 }

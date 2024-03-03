@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameObject bullet;
     [SerializeField] GameObject attackHitbox;
     [SerializeField] int type = 0;
+    [SerializeField] int HP = 12;
     VariableTimer attackTimer;
     //public Animator animator;
     Vector2 movement;
@@ -54,6 +55,10 @@ public class PlayerMovement : MonoBehaviour
 
         if(attackTimer.finished){
             attackTimer.ResetTimer();
+        }
+
+        if(HP<= 0){
+            Destroy(gameObject);
         }
     }
 
@@ -106,4 +111,9 @@ public class PlayerMovement : MonoBehaviour
             }
     }
 
+    public void Damage(int dmgValue, float stunTime = 0.2f){
+        HP -= dmgValue;
+        //stunTimer.StartTimer(stunTime);
+        
+    }
 }

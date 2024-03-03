@@ -32,7 +32,7 @@ public class EnemyCloseRange : MonoBehaviour
             agent.velocity = new Vector3(0,0,0);
             if(attackTimer.started == false){
                 Attack bulletInstance = Instantiate(bullet,transform.position-(transform.position - target.position).normalized, transform.rotation).GetComponent<Attack>();
-                bulletInstance.Setup(-(transform.position - target.position).normalized, 2, 0.2f, 10f);
+                bulletInstance.Setup(-(transform.position - target.position).normalized, 2, 0.2f, false);
                 attackTimer.StartTimer(1);
             }
         }

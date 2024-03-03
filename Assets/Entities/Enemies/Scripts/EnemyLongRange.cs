@@ -36,7 +36,7 @@ public class EnemyLongRange : MonoBehaviour
             agent.SetDestination(runTo);
             if(attackTimer.started == false){
                 Bullet bulletInstance = Instantiate(bullet,transform.position-(transform.position - target.position).normalized, transform.rotation).GetComponent<Bullet>();
-                bulletInstance.Setup(-(transform.position - target.position).normalized, 2, 0.2f, 10f);
+                bulletInstance.Setup(-(transform.position - target.position).normalized, 2, 0.2f, 10f, false);
                 attackTimer.StartTimer(1);
             }
             
