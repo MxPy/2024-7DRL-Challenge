@@ -8,7 +8,7 @@ public class LevelChange : MonoBehaviour
     public Transform[] placementsList;
     void Start()
     {
-        
+ 
     }
 
     void Update()
@@ -31,7 +31,12 @@ public class LevelChange : MonoBehaviour
         transform.localScale = newPlacement.localScale;
     }
 
-    public void CameraMove2(){
+    public void CameraMove2(int toTheLevel){
+        /*
+        if(toTheLevel == 1){
+            // transform[] that is specified for this type of prefab (eg. 2LD Doors)
+        }
+        */
         int num = RandomLevel(0,3);
         if(placementsList[num] == null){
             Debug.LogError("No transform");
