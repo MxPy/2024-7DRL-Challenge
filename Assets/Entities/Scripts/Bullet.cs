@@ -5,15 +5,23 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     Vector3 shootDir;
+    int dmgValue;
+    float stunTime;
     public float moveSpeed = 10f;
+    bool playerOrEnemy;
 
-    public void Setup(Vector3 shootDir){
+    public void Setup(Vector3 shootDir, int dmgValue, float stunTime, float moveSpeed = 10f, bool playerOrEnemy = true){
         this.shootDir = shootDir;
-        transform.eulerAngles = new Vector3(0,0, GetAngleFromVectorFloat(shootDir) -90);
+        this.dmgValue = dmgValue;
+        this.stunTime = stunTime;
+        this.moveSpeed = moveSpeed;
+        //Debug.Log("SETUP:" + shootDir);
+        transform.eulerAngles = new Vector3(0,0, GetAngleFromVectorFloat(shootDir) - 90);
     }
 
     private void Update() {
         transform.position += shootDir * moveSpeed * Time.deltaTime;
+        //Debug.Log("UPDATE:" + transform.position);
         Destroy(gameObject, 5f);
     }
 
@@ -27,5 +35,10 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
             Destroy(gameObject);
+            if(playerOrEnemy && (other.tag == "EnemyCloseRange" || other.tag == "EnemyLongRange")){
+                other.GetComponent<EnemyCloseRange>().Damage(dmgValue, stunTime);
+            }else if(!playerOrEnemy && other.tag == "Player"){
+                other.GetComponent<PlayerMovement>().Damage(dmgValue, stunTime);
+            }
     }
 }
