@@ -171,9 +171,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraPrefab:
-  - {fileID: 786233438994695806, guid: be06243f18f4a0347b65947719b7527b, type: 3}
-  - {fileID: 786233438994695806, guid: 8cbbda1015b961041922508926777f31, type: 3}
-  - {fileID: 786233438994695806, guid: d4b214811189c6c43a0aa2904b8cd2f6, type: 3}
+  - {fileID: 786233438994695806, guid: cbfaa025ba52d2f49a4c4941e4ea89f4, type: 3}
+  - {fileID: 786233438994695806, guid: cbfaa025ba52d2f49a4c4941e4ea89f4, type: 3}
+  - {fileID: 786233438994695806, guid: cbfaa025ba52d2f49a4c4941e4ea89f4, type: 3}
 --- !u!114 &5748423792506693226
 MonoBehaviour:
   m_ObjectHideFlags: 0

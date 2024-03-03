@@ -8,14 +8,24 @@ public class LevelChange : MonoBehaviour
     public Transform[] placementsList;
     //public GenerateLevel generator;
     void Start(){
-        if(newPlacement == null){
+        //move2()
+        int num = RandomLevel(0,1);
+        if(placementsList[num] == null){
             Debug.LogError("No transform");
             return;
         }
         Debug.Log("transform");
-        transform.position = newPlacement.position;
-        transform.rotation = newPlacement.rotation;
-        transform.localScale = newPlacement.localScale;
+        transform.position = placementsList[num].position;
+        transform.rotation = placementsList[num].rotation;
+        transform.localScale = placementsList[num].localScale;
+
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if(player == null){
+            Debug.LogError("No player");
+        return;
+        }
+        Vector3 newPosition = new Vector3(transform.position.x, transform.position.y, 0);
+        player.transform.position = newPosition;
     }
 
     void Update()

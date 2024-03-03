@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6019776910092835899}
   - component: {fileID: 5441463294858023479}
   m_Layer: 0
-  m_Name: DoorLeft
+  m_Name: DoorDown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 249693823113880373}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.51, y: -0.49, z: 0}
+  m_LocalPosition: {x: -0.45, y: -3.46, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -72,8 +72,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraPrefab:
-  - {fileID: 786233438994695806, guid: d4b214811189c6c43a0aa2904b8cd2f6, type: 3}
-  - {fileID: 786233438994695806, guid: e4244d13b36ca4847853c52adbf8a87a, type: 3}
+  - {fileID: 786233438994695806, guid: be06243f18f4a0347b65947719b7527b, type: 3}
+  - {fileID: 786233438994695806, guid: be06243f18f4a0347b65947719b7527b, type: 3}
 --- !u!1 &786233438994695806
 GameObject:
   m_ObjectHideFlags: 0
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 786233438994695807}
   - component: {fileID: 7905686116443634851}
   m_Layer: 0
-  m_Name: 2LD Camera
+  m_Name: 2UD Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101,7 +101,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 786233438994695806}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -175,9 +175,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newPlacement: {fileID: 3998034918279209243, guid: c570702dee44283439603f0d43b644c2, type: 3}
   placementsList:
-  - {fileID: 3998034918279209243, guid: 52a607623b2bf6643b64048745f57def, type: 3}
-  - {fileID: 3998034918279209243, guid: 52a607623b2bf6643b64048745f57def, type: 3}
-  - {fileID: 3998034918279209243, guid: 52a607623b2bf6643b64048745f57def, type: 3}
+  - {fileID: 3998034918279209243, guid: c570702dee44283439603f0d43b644c2, type: 3}
+  - {fileID: 3998034918279209243, guid: c570702dee44283439603f0d43b644c2, type: 3}
+  - {fileID: 3998034918279209243, guid: c570702dee44283439603f0d43b644c2, type: 3}
   - {fileID: 3998034918279209243, guid: 00c9eaaa208c13744afc848515521103, type: 3}
   - {fileID: 3998034918279209243, guid: 52a607623b2bf6643b64048745f57def, type: 3}
 --- !u!1 &1327910588165869861
@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 4128536772377637096}
   - component: {fileID: 5254604254529197639}
   m_Layer: 0
-  m_Name: DoorDown
+  m_Name: DoorUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -206,7 +206,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1327910588165869861}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.45, y: -3.46, z: 0}
+  m_LocalPosition: {x: -0.54, y: 3.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -252,5 +252,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraPrefab:
-  - {fileID: 786233438994695806, guid: d4b214811189c6c43a0aa2904b8cd2f6, type: 3}
+  - {fileID: 786233438994695806, guid: 8cbbda1015b961041922508926777f31, type: 3}
   - {fileID: 786233438994695806, guid: be06243f18f4a0347b65947719b7527b, type: 3}

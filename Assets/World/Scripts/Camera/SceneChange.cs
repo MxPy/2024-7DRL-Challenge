@@ -17,7 +17,7 @@ public class SceneChange : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other){
         GameObject currentCamera = Camera.main.gameObject;
         nextLevel = RandomLevel(0,1);
-        LevelChange level = cameraPrefab[nextLevel].GetComponent<LevelChange>();
+        //LevelChange level = cameraPrefab[nextLevel].GetComponent<LevelChange>();
 
         if (currentCamera.CompareTag("MainCamera") && other.CompareTag("Player"))
         {
@@ -30,12 +30,11 @@ public class SceneChange : MonoBehaviour
 
             //change current camera prefab (doors placement)
             GameObject newCamera = Instantiate(cameraPrefab[nextLevel]);
-            Vector3 newPlayerPos = new Vector3(newCamera.transform.position.x, newCamera.transform.position.y, 0);
-            other.transform.position = newPlayerPos;
-
+            Debug.Log(newCamera.transform.position);
             if(newCamera){
                 Destroy(currentCamera);
                 newCamera.tag = "MainCamera";
+                Debug.Log(newCamera.transform.position);
             }
         }
     }

@@ -175,10 +175,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newPlacement: {fileID: 3998034918279209243, guid: c570702dee44283439603f0d43b644c2, type: 3}
   placementsList:
+  - {fileID: 3998034918279209243, guid: ceae7dc0d565a4b488351afcd9936e8b, type: 3}
+  - {fileID: 3998034918279209243, guid: ceae7dc0d565a4b488351afcd9936e8b, type: 3}
+  - {fileID: 3998034918279209243, guid: ceae7dc0d565a4b488351afcd9936e8b, type: 3}
   - {fileID: 3998034918279209243, guid: c570702dee44283439603f0d43b644c2, type: 3}
-  - {fileID: 3998034918279209243, guid: 52a607623b2bf6643b64048745f57def, type: 3}
-  - {fileID: 3998034918279209243, guid: aee19a392576981419cbfb67b89add26, type: 3}
-  - {fileID: 3998034918279209243, guid: 00c9eaaa208c13744afc848515521103, type: 3}
   - {fileID: 3998034918279209243, guid: 52a607623b2bf6643b64048745f57def, type: 3}
 --- !u!1 &1327910588165869861
 GameObject:
