@@ -5,12 +5,14 @@ using UnityEngine;
 public class SceneChange : MonoBehaviour
 {
     public GameObject[] cameraPrefab;
+    //public GenerateLevel generator;
     int nextLevel = 0;
 
-    //same fun as in levelchange(), to be removed
-    int RandomLevel(int min, int max){
+    //temporary fun
+    public int RandomLevel(int min, int max){
         return Random.Range(min, max + 1);
     }
+
 
     private void OnTriggerEnter2D(Collider2D other){
         GameObject currentCamera = Camera.main.gameObject;

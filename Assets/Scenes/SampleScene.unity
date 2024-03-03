@@ -153,7 +153,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4009d69a5a426a4987c721b84e77e29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraPrefab: {fileID: 0}
+  cameraPrefab:
+  - {fileID: 0}
+  generator: {fileID: 0}
 --- !u!61 &849884013
 BoxCollider2D:
   m_ObjectHideFlags: 0

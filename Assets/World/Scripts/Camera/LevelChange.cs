@@ -6,6 +6,7 @@ public class LevelChange : MonoBehaviour
 {
     public Transform newPlacement;
     public Transform[] placementsList;
+    //public GenerateLevel generator;
     void Start()
     {
  
@@ -16,10 +17,10 @@ public class LevelChange : MonoBehaviour
         
     }
 
-    int RandomLevel(int min, int max){
+    //temporary fun
+    public int RandomLevel(int min, int max){
         return Random.Range(min, max + 1);
     }
-
     public void CameraMove(){
         if(newPlacement == null){
             Debug.LogError("No transform");
