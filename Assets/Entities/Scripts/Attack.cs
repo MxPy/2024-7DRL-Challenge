@@ -31,7 +31,7 @@ public class Attack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
             if(other.tag == "EnemyCloseRange"){
-                other.GetComponent<EnemyCloseRange>().Damage(dmgValue, stunTime);
+                //other.GetComponent<EnemyCloseRange>().Damage(dmgValue, stunTime);
             }
     }
 }

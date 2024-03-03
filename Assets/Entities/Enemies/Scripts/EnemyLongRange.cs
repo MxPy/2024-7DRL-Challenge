@@ -44,6 +44,9 @@ public class EnemyLongRange : MonoBehaviour
         else agent.SetDestination(target.position);
         if(stunTimer.finished == true){
             stunTimer.ResetTimer();
+            
+        }
+        if(attackTimer.finished == true){
             attackTimer.ResetTimer();
         }
         if(HP <= 0){
@@ -53,7 +56,7 @@ public class EnemyLongRange : MonoBehaviour
 
     public void Damage(int dmgValue, float stunTime = 0.2f){
         HP -= dmgValue;
-        stunTimer.StartTimer(stunTime);
+        //stunTimer.StartTimer(stunTime);
         agent.speed = 0f;
     }
 }

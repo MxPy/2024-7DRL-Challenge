@@ -10,8 +10,9 @@ public class EnemyCloseRangeFly : MonoBehaviour
     [SerializeField] float speed = 3.5f;
 
     int xOry = 0;
-    
     VariableTimer stunTimer;
+    VariableTimer attackTimer;
+
     bool getHit = false;
 
 
