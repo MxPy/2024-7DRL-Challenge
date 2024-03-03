@@ -142,7 +142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &38198001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,7 +160,7 @@ MonoBehaviour:
   speed: 3.5
   range: 5
   multiplier: 1
-  bullet: {fileID: 984152504724513482, guid: 052f1bc5bd688ed429f72ffe39ead183, type: 3}
+  bullet: {fileID: 984152504724513482, guid: 34eea9d2ed0a13f4a8626c30f0f5bb57, type: 3}
 --- !u!61 &38198002
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -542,7 +542,7 @@ MonoBehaviour:
   HP: 6
   speed: 3.5
   range: 1
-  bullet: {fileID: 984152504724513482, guid: 5e2b1dbbbbbdec94cb99f6fd6c06cfb5, type: 3}
+  bullet: {fileID: 984152504724513482, guid: ea9c3b0447333dc4a8b892b18def2400, type: 3}
 --- !u!195 &837732381
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1073,6 +1073,7 @@ MonoBehaviour:
   bullet: {fileID: 984152504724513482, guid: 052f1bc5bd688ed429f72ffe39ead183, type: 3}
   attackHitbox: {fileID: 984152504724513482, guid: 5e2b1dbbbbbdec94cb99f6fd6c06cfb5, type: 3}
   type: 1
+  HP: 12
 --- !u!61 &1609142847
 BoxCollider2D:
   m_ObjectHideFlags: 0
