@@ -31,12 +31,9 @@ public class LevelChange : MonoBehaviour
         transform.localScale = newPlacement.localScale;
     }
 
-    public void CameraMove2(int toTheLevel){
-        /*
-        if(toTheLevel == 1){
-            // transform[] that is specified for this type of prefab (eg. 2LD Doors)
-        }
-        */
+    public void CameraMove2(){
+        // positions are assign statically for every camera prefab
+        // waits until the final tilemap
         int num = RandomLevel(0,3);
         if(placementsList[num] == null){
             Debug.LogError("No transform");

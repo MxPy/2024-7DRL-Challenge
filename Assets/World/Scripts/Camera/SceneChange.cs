@@ -21,7 +21,7 @@ public class SceneChange : MonoBehaviour
         {
             // changes the position (level)
             Debug.Log("bef function");
-            level.CameraMove2(nextLevel);
+            level.CameraMove2();
             Debug.Log("af function");
 
             //change current camera prefab (doors placement)
