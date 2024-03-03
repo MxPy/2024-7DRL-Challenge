@@ -7,9 +7,15 @@ public class LevelChange : MonoBehaviour
     public Transform newPlacement;
     public Transform[] placementsList;
     //public GenerateLevel generator;
-    void Start()
-    {
- 
+    void Start(){
+        if(newPlacement == null){
+            Debug.LogError("No transform");
+            return;
+        }
+        Debug.Log("transform");
+        transform.position = newPlacement.position;
+        transform.rotation = newPlacement.rotation;
+        transform.localScale = newPlacement.localScale;
     }
 
     void Update()

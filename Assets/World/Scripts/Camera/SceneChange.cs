@@ -21,15 +21,18 @@ public class SceneChange : MonoBehaviour
 
         if (currentCamera.CompareTag("MainCamera") && other.CompareTag("Player"))
         {
+            /*
             // changes the position (level)
             Debug.Log("bef function");
-            level.CameraMove2();
+            level.CameraMove();
             Debug.Log("af function");
+            */
 
             //change current camera prefab (doors placement)
             Destroy(currentCamera);
-            GameObject newCamera = Instantiate(cameraPrefab[nextLevel], transform.position, transform.rotation);
+            GameObject newCamera = Instantiate(cameraPrefab[nextLevel]);
             newCamera.tag = "MainCamera";
+            other.transform.position = newCamera.transform.position;
         }
     }
 

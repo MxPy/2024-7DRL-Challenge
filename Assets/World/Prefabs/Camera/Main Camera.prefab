@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 786233438994695810}
   - component: {fileID: 786233438994695805}
   - component: {fileID: 786233438994695807}
-  - component: {fileID: 7905686116443634851}
   - component: {fileID: 695818073664384175}
   m_Layer: 0
   m_Name: Main Camera
@@ -87,26 +86,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 786233438994695806}
   m_Enabled: 1
---- !u!114 &7905686116443634851
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 786233438994695806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3969f2545a830348908da1a1085f21e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  newPlacement: {fileID: 3998034918279209243, guid: c570702dee44283439603f0d43b644c2, type: 3}
-  generator: {fileID: 695818073664384175}
-  placementsList:
-  - {fileID: 3998034918279209243, guid: c570702dee44283439603f0d43b644c2, type: 3}
-  - {fileID: 3998034918279209243, guid: 52a607623b2bf6643b64048745f57def, type: 3}
-  - {fileID: 3998034918279209243, guid: aee19a392576981419cbfb67b89add26, type: 3}
-  - {fileID: 3998034918279209243, guid: 00c9eaaa208c13744afc848515521103, type: 3}
-  - {fileID: 3998034918279209243, guid: 52a607623b2bf6643b64048745f57def, type: 3}
 --- !u!114 &695818073664384175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,7 +125,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1327910588165869861}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: 1.6, z: 0}
+  m_LocalPosition: {x: -0.54, y: 3.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -195,7 +174,6 @@ MonoBehaviour:
   - {fileID: 786233438994695806, guid: be06243f18f4a0347b65947719b7527b, type: 3}
   - {fileID: 786233438994695806, guid: 8cbbda1015b961041922508926777f31, type: 3}
   - {fileID: 786233438994695806, guid: d4b214811189c6c43a0aa2904b8cd2f6, type: 3}
-  generator: {fileID: 5748423792506693226}
 --- !u!114 &5748423792506693226
 MonoBehaviour:
   m_ObjectHideFlags: 0
