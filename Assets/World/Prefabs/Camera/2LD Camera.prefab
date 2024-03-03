@@ -72,9 +72,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraPrefab:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 786233438994695806, guid: d4b214811189c6c43a0aa2904b8cd2f6, type: 3}
+  - {fileID: 786233438994695806, guid: e4244d13b36ca4847853c52adbf8a87a, type: 3}
 --- !u!1 &786233438994695806
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,6 +252,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraPrefab:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 786233438994695806, guid: d4b214811189c6c43a0aa2904b8cd2f6, type: 3}
+  - {fileID: 786233438994695806, guid: be06243f18f4a0347b65947719b7527b, type: 3}

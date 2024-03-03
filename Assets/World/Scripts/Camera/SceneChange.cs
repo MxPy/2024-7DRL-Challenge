@@ -14,7 +14,7 @@ public class SceneChange : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other){
         GameObject currentCamera = Camera.main.gameObject;
-        nextLevel = RandomLevel(0,5);
+        nextLevel = RandomLevel(0,1);
         LevelChange level = cameraPrefab[nextLevel].GetComponent<LevelChange>();
 
         if (currentCamera.CompareTag("MainCamera") && other.CompareTag("Player"))
