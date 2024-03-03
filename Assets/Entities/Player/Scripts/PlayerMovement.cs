@@ -18,13 +18,18 @@ public class PlayerMovement : MonoBehaviour
     Vector2 movement;
 
     int dmgModifier = 1;
-    int dmgModifierUpgrade  = 1;
+    int dmgModifierUpgrade  = 2;
     int movmentModifier = 0;
     int movmentModifierUpgrade  = 0;
     int otherModifier = 0;
     int otherModifierUpgrade  = 0;
     private void Start() {
         attackTimer = gameObject.AddComponent(typeof(VariableTimer)) as VariableTimer;
+    }
+
+    public void SetDmgModifier(int dmgModifier){
+        dmgModifierUpgrade = 0;
+        this.dmgModifier = dmgModifier;
     }
     
     void Update()
@@ -194,7 +199,34 @@ public class PlayerMovement : MonoBehaviour
             }
             break;
         case 2:
-            //TODO: ADD angular attack
+            
+                //TODO: change attack cooldown time
+            if (attackTimer.started == false  && (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) )){
+                attackTimer.StartTimer(1);
+                if(type == 0){
+                    shoot(0);
+                    shoot(2);
+                    shoot(1);
+                    shoot(3);
+                    shoot(4);
+                    shoot(5);
+                    shoot(6);
+                    shoot(7);
+                } 
+                else if(type == 1){
+                    attack(0);
+                    attack(2);
+                    attack(1);
+                    attack(3);
+                    attack(4);
+                    attack(5);
+                    attack(6);
+                    attack(7);
+                } 
+            }  
+            if(attackTimer.finished){
+                attackTimer.ResetTimer();
+            }
             break;
         default:
             // code block
@@ -226,7 +258,24 @@ public class PlayerMovement : MonoBehaviour
                 bulletInstance = Instantiate(bullet,transform.position+Vector3.down, transform.rotation).GetComponent<Bullet>();
                 bulletInstance.Setup(Vector3.down, 2, 0.2f);
                 break;
+            case 4:
+                bulletInstance = Instantiate(bullet,transform.position+Vector3.left+Vector3.up, transform.rotation).GetComponent<Bullet>();
+                bulletInstance.Setup(Vector3.left+Vector3.up, 2, 0.2f);
+                break;
+            case 5:
+                bulletInstance = Instantiate(bullet,transform.position+Vector3.up+Vector3.right, transform.rotation).GetComponent<Bullet>();
+                bulletInstance.Setup(Vector3.up+Vector3.right, 2, 0.2f);
+                break;
+            case 6:
+                bulletInstance = Instantiate(bullet,transform.position+Vector3.right+Vector3.down, transform.rotation).GetComponent<Bullet>();
+                bulletInstance.Setup(Vector3.right+Vector3.down, 2, 0.2f);
+                break;
+            case 7:
+                bulletInstance = Instantiate(bullet,transform.position+Vector3.down+Vector3.left, transform.rotation).GetComponent<Bullet>();
+                bulletInstance.Setup(Vector3.down+Vector3.left, 2, 0.2f);
+                break;
             }
+            
            
     }
     private void attack(uint direction){
@@ -248,7 +297,24 @@ public class PlayerMovement : MonoBehaviour
                 attackInstance = Instantiate(attackHitbox,transform.position+Vector3.down, transform.rotation).GetComponent<Attack>();
                 attackInstance.Setup(Vector3.down, 2, 0.2f);
                 break;
+            case 4:
+                attackInstance = Instantiate(attackHitbox,transform.position+Vector3.left+Vector3.up, transform.rotation).GetComponent<Attack>();
+                attackInstance.Setup(Vector3.left+Vector3.up, 2, 0.2f);
+                break;
+            case 5:
+                attackInstance = Instantiate(attackHitbox,transform.position+Vector3.up+Vector3.right, transform.rotation).GetComponent<Attack>();
+                attackInstance.Setup(Vector3.up+Vector3.right, 2, 0.2f);
+                break;
+            case 6:
+                attackInstance = Instantiate(attackHitbox,transform.position+Vector3.right+Vector3.down, transform.rotation).GetComponent<Attack>();
+                attackInstance.Setup(Vector3.right+Vector3.down, 2, 0.2f);
+                break;
+            case 7:
+                attackInstance = Instantiate(attackHitbox,transform.position+Vector3.down+Vector3.left, transform.rotation).GetComponent<Attack>();
+                attackInstance.Setup(Vector3.down+Vector3.left, 2, 0.2f);
+                break;
             }
+            
     }
 
     public void Damage(int dmgValue, float stunTime = 0.2f){
