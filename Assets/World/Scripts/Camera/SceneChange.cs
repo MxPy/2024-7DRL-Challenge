@@ -29,10 +29,14 @@ public class SceneChange : MonoBehaviour
             */
 
             //change current camera prefab (doors placement)
-            Destroy(currentCamera);
             GameObject newCamera = Instantiate(cameraPrefab[nextLevel]);
-            newCamera.tag = "MainCamera";
-            other.transform.position = newCamera.transform.position;
+            Vector3 newPlayerPos = new Vector3(newCamera.transform.position.x, newCamera.transform.position.y, 0);
+            other.transform.position = newPlayerPos;
+
+            if(newCamera){
+                Destroy(currentCamera);
+                newCamera.tag = "MainCamera";
+            }
         }
     }
 
