@@ -17,48 +17,188 @@ public class PlayerMovement : MonoBehaviour
     //public Animator animator;
     Vector2 movement;
 
+    int dmgModifier = 1;
+    int dmgModifierUpgrade  = 1;
+    int movmentModifier = 0;
+    int movmentModifierUpgrade  = 0;
+    int otherModifier = 0;
+    int otherModifierUpgrade  = 0;
     private void Start() {
         attackTimer = gameObject.AddComponent(typeof(VariableTimer)) as VariableTimer;
     }
     
     void Update()
     {
-        
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-
-        //animator.SetFloat("Horizontal", movement.x);
-        //animator.SetFloat("Vertical", movement.y);
-        //animator.SetFloat("Speed", movement.sqrMagnitude);
-
-        //TODO: change attack cooldown time
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && attackTimer.started == false){
-            attackTimer.StartTimer(1);
-            if(type == 0) shoot(0);
-            else if(type == 1) attack(0);
-        } 
-        else if (Input.GetKeyDown(KeyCode.UpArrow) && attackTimer.started == false){
-            attackTimer.StartTimer(1);
-           if(type == 0) shoot(1);
-           else if(type == 1) attack(1);
-        } 
-        else if (Input.GetKeyDown(KeyCode.RightArrow) && attackTimer.started == false){
-            attackTimer.StartTimer(1);
-           if(type == 0) shoot(2);
-           else if(type == 1) attack(2);
-        } 
-        else if (Input.GetKeyDown(KeyCode.DownArrow) && attackTimer.started == false){
-            attackTimer.StartTimer(1);
-           if(type == 0) shoot(3);
-           else if(type == 1) attack(3);
-        } 
-
-        if(attackTimer.finished){
-            attackTimer.ResetTimer();
+        switch(movmentModifier) {
+        case 0:
+            DefaultMovment();
+            break;
+        case 1:
+            // code block
+            break;
+        case 2:
+            // code block
+            break;
+        case 3:
+            // code block
+            break;
+        case 4:
+            // code block
+            break;
+        case 5:
+            // code block
+            break;
+        default:
+            // code block
+            break;
         }
+        switch(dmgModifier) {
+        case 0:
+            DefaultDmg();
+            break;
+        case 1:
+            TwoWayDMG();
+            break;
+        case 2:
+            // code block
+            break;
+        case 3:
+            // code block
+            break;
+        case 4:
+            // code block
+            break;
+        case 5:
+            // code block
+            break;
+        default:
+            // code block
+            break;
+        }
+
+        
 
         if(HP<= 0){
             Destroy(gameObject);
+        }
+    }
+
+    private void DefaultMovment(){
+        switch(movmentModifierUpgrade) {
+        case 0:
+            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.y = Input.GetAxisRaw("Vertical");
+            break;
+        case 1:
+            // code block
+            break;
+        case 2:
+            // code block
+        
+        default:
+            // code block
+            break;
+        }
+        
+    }
+
+    private void DefaultDmg(){
+        switch(dmgModifierUpgrade) {
+        case 0:
+                //TODO: change attack cooldown time
+            if (Input.GetKeyDown(KeyCode.LeftArrow) && attackTimer.started == false){
+                attackTimer.StartTimer(1);
+                if(type == 0) shoot(0);
+                else if(type == 1) attack(0);
+            } 
+            else if (Input.GetKeyDown(KeyCode.UpArrow) && attackTimer.started == false){
+                attackTimer.StartTimer(1);
+                if(type == 0) shoot(1);
+                else if(type == 1) attack(1);
+            } 
+            else if (Input.GetKeyDown(KeyCode.RightArrow) && attackTimer.started == false){
+                attackTimer.StartTimer(1);
+                if(type == 0) shoot(2);
+                else if(type == 1) attack(2);
+            } 
+            else if (Input.GetKeyDown(KeyCode.DownArrow) && attackTimer.started == false){
+                attackTimer.StartTimer(1);
+                if(type == 0) shoot(3);
+                else if(type == 1) attack(3);
+            }
+            if(attackTimer.finished){
+                attackTimer.ResetTimer();
+            }
+            break;
+        case 1:
+            // code block
+            break;
+        case 2:
+            // code block
+        
+        default:
+            // code block
+            break;
+        }
+    }
+
+    private void TwoWayDMG(){
+        switch(dmgModifierUpgrade) {
+        case 0:
+                //TODO: change attack cooldown time
+            if (attackTimer.started == false  && (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))){
+                attackTimer.StartTimer(1);
+                if(type == 0){
+                    shoot(0);
+                    shoot(2);
+                } 
+                else if(type == 1){
+                    attack(0);
+                    attack(2);
+                } 
+            } 
+            else if (attackTimer.started == false && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) )){
+                attackTimer.StartTimer(1);
+                if(type == 0){
+                    shoot(1);
+                    shoot(3);
+                } 
+                else if(type == 1){
+                    attack(1);
+                    attack(3);
+                } 
+            } 
+            if(attackTimer.finished){
+                attackTimer.ResetTimer();
+            }
+            break;
+        case 1:
+                //TODO: change attack cooldown time
+            if (attackTimer.started == false  && (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) )){
+                attackTimer.StartTimer(1);
+                if(type == 0){
+                    shoot(0);
+                    shoot(2);
+                    shoot(1);
+                    shoot(3);
+                } 
+                else if(type == 1){
+                    attack(0);
+                    attack(2);
+                    attack(1);
+                    attack(3);
+                } 
+            }  
+            if(attackTimer.finished){
+                attackTimer.ResetTimer();
+            }
+            break;
+        case 2:
+            //TODO: ADD angular attack
+            break;
+        default:
+            // code block
+            break;
         }
     }
 
