@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 928411599881223790}
   - component: {fileID: 2993500114460898991}
   - component: {fileID: 8210323962667821789}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: catBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}

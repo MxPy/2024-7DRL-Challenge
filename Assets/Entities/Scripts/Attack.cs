@@ -35,9 +35,12 @@ public class Attack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
             //Debug.Log("chuj");
-            if(playerOrEnemy && (other.tag == "EnemyCloseRange" || other.tag == "EnemyLongRange")){
+            if(playerOrEnemy && other.tag == "EnemyCloseRange"){
                 other.GetComponent<EnemyCloseRange>().Damage(dmgValue, stunTime);
-            }else if(!playerOrEnemy && other.tag == "Player"){
+            }else if(playerOrEnemy && other.tag == "EnemyLongRange"){
+                other.GetComponent<EnemyLongRange>().Damage(dmgValue, stunTime);
+            }
+            else if(!playerOrEnemy && other.tag == "Player"){
                 other.GetComponent<PlayerMovement>().Damage(dmgValue, stunTime);
             }
     }
