@@ -17,8 +17,8 @@ public class PlayerMovement : MonoBehaviour
     //public Animator animator;
     Vector2 movement;
 
-    int dmgModifier = 1;
-    int dmgModifierUpgrade  = 2;
+    int dmgModifier = 2;
+    int dmgModifierUpgrade  = 1;
     int movmentModifier = 0;
     int movmentModifierUpgrade  = 0;
     int otherModifier = 0;
@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
             TwoWayDMG();
             break;
         case 2:
-            // code block
+            TripleDmg();
             break;
         case 3:
             // code block
@@ -233,6 +233,134 @@ public class PlayerMovement : MonoBehaviour
             break;
         }
     }
+    private void TripleDmg(){
+        switch(dmgModifierUpgrade) {
+        case 0:
+                //TODO: change attack cooldown time
+            if (Input.GetKeyDown(KeyCode.LeftArrow) && attackTimer.started == false){
+                attackTimer.StartTimer(1);
+                if(type == 0){
+                    shoot(Vector3.left+(Vector3.up/2));
+                    shoot(Vector3.left+(Vector3.down/2));
+                } 
+                else if(type == 1){
+                    attack(Vector3.left+(Vector3.up/2));
+                    attack(Vector3.left+(Vector3.down/2));
+                } 
+            } 
+            else if (Input.GetKeyDown(KeyCode.UpArrow) && attackTimer.started == false){
+                attackTimer.StartTimer(1);
+                if(type == 0){
+                    shoot(Vector3.up+(Vector3.left/2));
+                    shoot(Vector3.up+(Vector3.right/2));
+                } 
+                else if(type == 1){
+                    attack(Vector3.up+(Vector3.left/2));
+                    attack(Vector3.up+(Vector3.right/2));
+                }
+                
+            } 
+            else if (Input.GetKeyDown(KeyCode.RightArrow) && attackTimer.started == false){
+                attackTimer.StartTimer(1);
+                if(type == 0){
+                    shoot(Vector3.right+(Vector3.up/2));
+                    shoot(Vector3.right+(Vector3.down/2));
+                } 
+                else if(type == 1){
+                    attack(Vector3.right+(Vector3.up/2));
+                    attack(Vector3.right+(Vector3.down/2));
+                }
+            } 
+            else if (Input.GetKeyDown(KeyCode.DownArrow) && attackTimer.started == false){
+                attackTimer.StartTimer(1);
+                if(type == 0){
+                    shoot(Vector3.down+(Vector3.left/2));
+                    shoot(Vector3.down+(Vector3.right/2));
+                } 
+                else if(type == 1){
+                    attack(Vector3.down+(Vector3.left/2));
+                    attack(Vector3.down+(Vector3.right/2));
+                }
+            }
+            if(attackTimer.finished){
+                attackTimer.ResetTimer();
+            }
+            break;
+        case 1:
+                //TODO: change attack cooldown time
+            if (Input.GetKeyDown(KeyCode.LeftArrow) && attackTimer.started == false){
+                attackTimer.StartTimer(1);
+                if(type == 0){
+                    shoot(Vector3.left+(Vector3.up/2));
+                    shoot(Vector3.left+(Vector3.down/2));
+                    shoot(Vector3.left+(Vector3.up*0.25f));
+                    shoot(Vector3.left+(Vector3.down*0.25f));
+                } 
+                else if(type == 1){
+                    attack(Vector3.left+(Vector3.up/2));
+                    attack(Vector3.left+(Vector3.down/2));
+                    attack(Vector3.left+(Vector3.up*0.25f));
+                    attack(Vector3.left+(Vector3.down*0.25f));
+                } 
+            } 
+            else if (Input.GetKeyDown(KeyCode.UpArrow) && attackTimer.started == false){
+                attackTimer.StartTimer(1);
+                if(type == 0){
+                    shoot(Vector3.up+(Vector3.left/2));
+                    shoot(Vector3.up+(Vector3.right/2));
+                    shoot(Vector3.up+(Vector3.left*0.25f));
+                    shoot(Vector3.up+(Vector3.right*0.25f));
+                } 
+                else if(type == 1){
+                    attack(Vector3.up+(Vector3.left/2));
+                    attack(Vector3.up+(Vector3.right/2));
+                    attack(Vector3.up+(Vector3.left*0.25f));
+                    attack(Vector3.up+(Vector3.right*0.25f));
+                }
+                
+            } 
+            else if (Input.GetKeyDown(KeyCode.RightArrow) && attackTimer.started == false){
+                attackTimer.StartTimer(1);
+                if(type == 0){
+                    shoot(Vector3.right+(Vector3.up/2));
+                    shoot(Vector3.right+(Vector3.down/2));
+                    shoot(Vector3.right+(Vector3.up*0.25f));
+                    shoot(Vector3.right+(Vector3.down*0.25f));
+                } 
+                else if(type == 1){
+                    attack(Vector3.right+(Vector3.up/2));
+                    attack(Vector3.right+(Vector3.down/2));
+                    attack(Vector3.right+(Vector3.up*0.25f));
+                    attack(Vector3.right+(Vector3.down*0.25f));
+                }
+            } 
+            else if (Input.GetKeyDown(KeyCode.DownArrow) && attackTimer.started == false){
+                attackTimer.StartTimer(1);
+                if(type == 0){
+                    shoot(Vector3.down+(Vector3.left/2));
+                    shoot(Vector3.down+(Vector3.right/2));
+                    shoot(Vector3.down+(Vector3.left*0.25f));
+                    shoot(Vector3.down+(Vector3.right*0.25f));
+                } 
+                else if(type == 1){
+                    attack(Vector3.down+(Vector3.left/2));
+                    attack(Vector3.down+(Vector3.right/2));
+                    attack(Vector3.down+(Vector3.left*0.25f));
+                    attack(Vector3.down+(Vector3.right*0.25f));
+                }
+            }
+            if(attackTimer.finished){
+                attackTimer.ResetTimer();
+            }
+            break;
+        case 2:
+            // code block
+        
+        default:
+            // code block
+            break;
+        }
+    }
 
     private void FixedUpdate() {
         rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
@@ -242,6 +370,7 @@ public class PlayerMovement : MonoBehaviour
     private void shoot(uint direction){
         Bullet bulletInstance = null;
         switch(direction){
+            
             case 0:
                 bulletInstance = Instantiate(bullet,transform.position+Vector3.left, transform.rotation).GetComponent<Bullet>();
                 bulletInstance.Setup(Vector3.left, 2, 0.2f);
@@ -274,9 +403,18 @@ public class PlayerMovement : MonoBehaviour
                 bulletInstance = Instantiate(bullet,transform.position+Vector3.down+Vector3.left, transform.rotation).GetComponent<Bullet>();
                 bulletInstance.Setup(Vector3.down+Vector3.left, 2, 0.2f);
                 break;
-            }
             
-           
+            }
+    }
+    //custom shot
+    private void shoot(Vector3 direction){
+        Bullet bulletInstance = Instantiate(bullet,transform.position+direction, transform.rotation).GetComponent<Bullet>();
+        bulletInstance.Setup(direction, 2, 0.2f);
+    }
+    //custom attack
+    private void attack(Vector3 direction){
+        Attack attackInstance = Instantiate(bullet,transform.position+direction, transform.rotation).GetComponent<Attack>();
+        attackInstance.Setup(direction, 2, 0.2f);
     }
     private void attack(uint direction){
         Attack attackInstance = null;
