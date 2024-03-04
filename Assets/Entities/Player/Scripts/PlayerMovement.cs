@@ -17,8 +17,8 @@ public class PlayerMovement : MonoBehaviour
     //public Animator animator;
     Vector2 movement;
 
-    int dmgModifier = 2;
-    int dmgModifierUpgrade  = 1;
+    int dmgModifier = 1;
+    int dmgModifierUpgrade  = 2;
     int movmentModifier = 0;
     int movmentModifierUpgrade  = 0;
     int otherModifier = 0;
@@ -354,8 +354,89 @@ public class PlayerMovement : MonoBehaviour
             }
             break;
         case 2:
-            // code block
-        
+                //TODO: change attack cooldown time
+            if (Input.GetKeyDown(KeyCode.LeftArrow) && attackTimer.started == false){
+                attackTimer.StartTimer(1);
+                if(type == 0){
+                    shoot(Vector3.left+(Vector3.up/2));
+                    shoot(Vector3.left+(Vector3.down/2));
+                    shoot(Vector3.left+(Vector3.up*0.25f));
+                    shoot(Vector3.left+(Vector3.down*0.25f));
+                    shoot(Vector3.left+(Vector3.up*0.125f));
+                    shoot(Vector3.left+(Vector3.down*0.125f));
+                } 
+                else if(type == 1){
+                    attack(Vector3.left+(Vector3.up/2));
+                    attack(Vector3.left+(Vector3.down/2));
+                    attack(Vector3.left+(Vector3.up*0.25f));
+                    attack(Vector3.left+(Vector3.down*0.25f));
+                    attack(Vector3.left+(Vector3.up*0.125f));
+                    attack(Vector3.left+(Vector3.down*0.125f));
+                } 
+            } 
+            else if (Input.GetKeyDown(KeyCode.UpArrow) && attackTimer.started == false){
+                attackTimer.StartTimer(1);
+                if(type == 0){
+                    shoot(Vector3.up+(Vector3.left/2));
+                    shoot(Vector3.up+(Vector3.right/2));
+                    shoot(Vector3.up+(Vector3.left*0.25f));
+                    shoot(Vector3.up+(Vector3.right*0.25f));
+                    shoot(Vector3.up+(Vector3.left*0.125f));
+                    shoot(Vector3.up+(Vector3.right*0.125f));
+                } 
+                else if(type == 1){
+                    attack(Vector3.up+(Vector3.left/2));
+                    attack(Vector3.up+(Vector3.right/2));
+                    attack(Vector3.up+(Vector3.left*0.25f));
+                    attack(Vector3.up+(Vector3.right*0.25f));
+                    attack(Vector3.up+(Vector3.left*0.125f));
+                    attack(Vector3.up+(Vector3.right*0.125f));
+                }
+                
+            } 
+            else if (Input.GetKeyDown(KeyCode.RightArrow) && attackTimer.started == false){
+                attackTimer.StartTimer(1);
+                if(type == 0){
+                    shoot(Vector3.right+(Vector3.up/2));
+                    shoot(Vector3.right+(Vector3.down/2));
+                    shoot(Vector3.right+(Vector3.up*0.25f));
+                    shoot(Vector3.right+(Vector3.down*0.25f));
+                    shoot(Vector3.right+(Vector3.up*0.125f));
+                    shoot(Vector3.right+(Vector3.down*0.125f));
+                } 
+                else if(type == 1){
+                    attack(Vector3.right+(Vector3.up/2));
+                    attack(Vector3.right+(Vector3.down/2));
+                    attack(Vector3.right+(Vector3.up*0.25f));
+                    attack(Vector3.right+(Vector3.down*0.25f));
+                    attack(Vector3.right+(Vector3.up*0.125f));
+                    attack(Vector3.right+(Vector3.down*0.125f));
+                }
+            } 
+            else if (Input.GetKeyDown(KeyCode.DownArrow) && attackTimer.started == false){
+                attackTimer.StartTimer(1);
+                if(type == 0){
+                    shoot(Vector3.down+(Vector3.left/2));
+                    shoot(Vector3.down+(Vector3.right/2));
+                    shoot(Vector3.down+(Vector3.left*0.25f));
+                    shoot(Vector3.down+(Vector3.right*0.25f));
+                    shoot(Vector3.down+(Vector3.left*0.125f));
+                    shoot(Vector3.down+(Vector3.right*0.125f));
+                    
+                } 
+                else if(type == 1){
+                    attack(Vector3.down+(Vector3.left/2));
+                    attack(Vector3.down+(Vector3.right/2));
+                    attack(Vector3.down+(Vector3.left*0.25f));
+                    attack(Vector3.down+(Vector3.right*0.25f));
+                    attack(Vector3.down+(Vector3.left*0.125f));
+                    attack(Vector3.down+(Vector3.right*0.125f));
+                }
+            }
+            if(attackTimer.finished){
+                attackTimer.ResetTimer();
+            }
+            break;
         default:
             // code block
             break;
