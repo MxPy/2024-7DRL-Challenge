@@ -288,7 +288,7 @@ GameObject:
   - component: {fileID: 81202518}
   - component: {fileID: 81202517}
   - component: {fileID: 81202516}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: catBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -413,7 +413,7 @@ GameObject:
   - component: {fileID: 109431379}
   - component: {fileID: 109431378}
   - component: {fileID: 109431377}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: catBoss (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -654,6 +654,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &182583522 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 984152504724513482, guid: ea9c3b0447333dc4a8b892b18def2400, type: 3}
+  m_PrefabInstance: {fileID: 948477353}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &182583523 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6522238048781159705, guid: ea9c3b0447333dc4a8b892b18def2400, type: 3}
@@ -671,7 +676,7 @@ GameObject:
   - component: {fileID: 228327836}
   - component: {fileID: 228327835}
   - component: {fileID: 228327834}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: catBoss (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1541,11 +1546,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2993500114460898991, guid: ea9c3b0447333dc4a8b892b18def2400, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3196109448058295744, guid: ea9c3b0447333dc4a8b892b18def2400, type: 3}
+      propertyPath: isTimed
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3196109448058295744, guid: ea9c3b0447333dc4a8b892b18def2400, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6522238048781159705, guid: ea9c3b0447333dc4a8b892b18def2400, type: 3}
       propertyPath: m_RootOrder
@@ -1636,8 +1645,8 @@ MonoBehaviour:
   HP: 6
   speed: 25
   range: 1
-  bullet: {fileID: 0}
-  cooldownTime: 5
+  bullet: {fileID: 182583522}
+  cooldownTime: 1.5
   targetList:
   - {fileID: 1494949465}
   - {fileID: 928571815}
@@ -1771,7 +1780,7 @@ GameObject:
   - component: {fileID: 1295946570}
   - component: {fileID: 1295946569}
   - component: {fileID: 1295946568}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: catBoss (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2974,7 +2983,7 @@ GameObject:
   - component: {fileID: 2115760292}
   - component: {fileID: 2115760291}
   - component: {fileID: 2115760290}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: catBoss (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

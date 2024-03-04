@@ -604,7 +604,8 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public void Damage(int dmgValue, float stunTime = 0.2f){
-        if(notInvincible){
+        if(notInvincible == true){
+            //UnityEngine.Debug.Log(HP);
             HP -= dmgValue;
         }
         

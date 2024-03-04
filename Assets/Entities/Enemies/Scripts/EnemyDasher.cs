@@ -13,7 +13,7 @@ public class EnemyDasher : MonoBehaviour
     VariableTimer attackTimer;
     VariableTimer stunTimer;
     int actualTarget = 0, nextTarget = 1;
-    [SerializeField]float cooldownTime = 3f;
+    [SerializeField]float cooldownTime = 1.5f;
     
     [SerializeField] List<GameObject> targetList = new();
     
@@ -29,12 +29,13 @@ public class EnemyDasher : MonoBehaviour
         gameObject.transform.position = targetList[actualTarget].transform.position;
         stunTimer = gameObject.AddComponent(typeof(VariableTimer)) as VariableTimer;
         attackTimer = gameObject.AddComponent(typeof(VariableTimer)) as VariableTimer;
+        bullet.GetComponent<Attack>().Setup(new Vector3(0,0,0), 2, 0.2f, false);
     }
 
     private void Update() {
-        Debug.Log(Vector3.Distance(targetList[actualTarget].transform.position, gameObject.transform.position));
-        if(Vector3.Distance(targetList[actualTarget].transform.position, gameObject.transform.position) <= 0.45  && attackTimer.started == false){
-            Debug.Log("chuyuj");
+        //Debug.Log(Vector3.Distance(targetList[actualTarget].transform.position, gameObject.transform.position));
+        if(Vector3.Distance(targetList[actualTarget].transform.position, gameObject.transform.position) <= 0.65  && attackTimer.started == false){
+            //Debug.Log("chuyuj");
             actualTarget = nextTarget;
             nextTarget += 1;
             if(nextTarget > targetList.Count-1){
