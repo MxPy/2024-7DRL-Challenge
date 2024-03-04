@@ -9,6 +9,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float speed = 2.5f;
+    [SerializeField] float defaultSpeed;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] GameObject bullet;
     [SerializeField] GameObject attackHitbox;
@@ -28,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     int otherModifier = 0;
     int otherModifierUpgrade  = 0;
     private void Start() {
+        this.defaultSpeed = speed;
         attackTimer = gameObject.AddComponent(typeof(VariableTimer)) as VariableTimer;
         modfifierTimer = gameObject.AddComponent(typeof(VariableTimer)) as VariableTimer;
     }
@@ -118,7 +120,7 @@ public class PlayerMovement : MonoBehaviour
             Invincible();
             break;
         case 2:
-            //TripleDmg();
+            SpeedyBoy();
             break;
         case 3:
             // code block
@@ -145,6 +147,17 @@ public class PlayerMovement : MonoBehaviour
         }
         if(modfifierTimer.finished == true){
             notInvincible = true;
+            otherModifier = 0;
+            modfifierTimer.ResetTimer();
+        }
+    }
+    private void SpeedyBoy(){
+        if(modfifierTimer.started == false){
+            modfifierTimer.StartTimer(5);
+            speed = speed*1.5f;
+        }
+        if(modfifierTimer.finished == true){
+            speed = defaultSpeed;
             otherModifier = 0;
             modfifierTimer.ResetTimer();
         }
