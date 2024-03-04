@@ -57,7 +57,7 @@ public class EnemyLongRange : MonoBehaviour
     public void Damage(int dmgValue, float stunTime = 0.2f){
         HP -= dmgValue;
         //stunTimer.StartTimer(stunTime);
-        agent.speed = 0f;
+        agent.velocity = new Vector3(0,0,0);
     }
 }
 

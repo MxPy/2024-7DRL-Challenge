@@ -15,6 +15,7 @@ public class Bullet : MonoBehaviour
         this.dmgValue = dmgValue;
         this.stunTime = stunTime;
         this.moveSpeed = moveSpeed;
+        this.playerOrEnemy = playerOrEnemy;
         //Debug.Log("SETUP:" + shootDir);
         transform.eulerAngles = new Vector3(0,0, GetAngleFromVectorFloat(shootDir) - 90);
     }
@@ -34,11 +35,15 @@ public class Bullet : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-            Destroy(gameObject);
-            if(playerOrEnemy && (other.tag == "EnemyCloseRange" || other.tag == "EnemyLongRange")){
-                other.GetComponent<EnemyCloseRange>().Damage(dmgValue, stunTime);
-            }else if(!playerOrEnemy && other.tag == "Player"){
+            if(playerOrEnemy){
+                if(other.GetComponent<EnemyCloseRange>())other.GetComponent<EnemyCloseRange>().Damage(dmgValue, stunTime);
+                if(other.GetComponent<EnemyLongRange>())other.GetComponent<EnemyLongRange>().Damage(dmgValue, stunTime);
+                if(other.GetComponent<EnemyCloseExplosive>())other.GetComponent<EnemyCloseExplosive>().Damage(dmgValue, stunTime);
+                if(other.GetComponent<EnemyDasher>())other.GetComponent<EnemyDasher>().Damage(dmgValue, stunTime);
+            }
+            else if(!playerOrEnemy && other.tag == "Player"){
                 other.GetComponent<PlayerMovement>().Damage(dmgValue, stunTime);
             }
+            Destroy(gameObject);
     }
 }
