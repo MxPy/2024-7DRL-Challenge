@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using TMPro;
 using UnityEngine;
 
 
@@ -13,8 +14,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameObject attackHitbox;
     [SerializeField] int type = 0;
     [SerializeField] int HP = 12;
+
+    bool notInvincible = true;
     VariableTimer attackTimer;
     //public Animator animator;
+    VariableTimer modfifierTimer;
     Vector2 movement;
 
     int dmgModifier = 1;
@@ -25,11 +29,36 @@ public class PlayerMovement : MonoBehaviour
     int otherModifierUpgrade  = 0;
     private void Start() {
         attackTimer = gameObject.AddComponent(typeof(VariableTimer)) as VariableTimer;
+        modfifierTimer = gameObject.AddComponent(typeof(VariableTimer)) as VariableTimer;
     }
 
     public void SetDmgModifier(int dmgModifier){
         dmgModifierUpgrade = 0;
         this.dmgModifier = dmgModifier;
+    }
+
+    public void SetOtherModifier(int otherModifier){
+        otherModifierUpgrade = 0;
+        this.otherModifier = otherModifier;
+    }
+    public void UpgradeDmgModifier(int modiferType){
+        switch(modiferType) {
+        case 0:
+            if(dmgModifierUpgrade<2){
+                dmgModifierUpgrade++;
+            }
+            break;
+        case 1:
+            if(movmentModifierUpgrade<2){
+                movmentModifierUpgrade++;
+            }
+            break;
+        case 2:
+            if(otherModifierUpgrade<2){
+                otherModifierUpgrade++;
+            }
+            break;
+        }
     }
     
     void Update()
@@ -81,10 +110,43 @@ public class PlayerMovement : MonoBehaviour
             break;
         }
 
-        
-
+        switch(otherModifier) {
+        case 0:
+            //DefaultDmg();
+            break;
+        case 1:
+            Invincible();
+            break;
+        case 2:
+            //TripleDmg();
+            break;
+        case 3:
+            // code block
+            break;
+        case 4:
+            // code block
+            break;
+        case 5:
+            // code block
+            break;
+        default:
+            // code block
+            break;
+        }
         if(HP<= 0){
             Destroy(gameObject);
+        }
+    }
+
+    private void Invincible(){
+        if(modfifierTimer.started == false){
+            modfifierTimer.StartTimer(5);
+            notInvincible = false;
+        }
+        if(modfifierTimer.finished == true){
+            notInvincible = true;
+            otherModifier = 0;
+            modfifierTimer.ResetTimer();
         }
     }
 
@@ -537,7 +599,10 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public void Damage(int dmgValue, float stunTime = 0.2f){
-        HP -= dmgValue;
+        if(notInvincible){
+            HP -= dmgValue;
+        }
+        
         //stunTimer.StartTimer(stunTime);
         
     }

@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackModifier : MonoBehaviour
+public class ModifierUpgrade : MonoBehaviour
 {
-    [SerializeField] int dmgModifier = 1;
+    [SerializeField] int modifierType = 1;
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.tag == "Player"){
-            other.GetComponent<PlayerMovement>().SetDmgModifier(dmgModifier);
+            other.GetComponent<PlayerMovement>().UpgradeDmgModifier(modifierType);
             Destroy(gameObject);
         }
     }
