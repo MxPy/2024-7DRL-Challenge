@@ -35,10 +35,11 @@ public class Bullet : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-            if(playerOrEnemy && other.tag == "EnemyCloseRange"){
-                other.GetComponent<EnemyCloseRange>().Damage(dmgValue, stunTime);
-            }else if(playerOrEnemy && other.tag == "EnemyLongRange"){
-                other.GetComponent<EnemyLongRange>().Damage(dmgValue, stunTime);
+            if(playerOrEnemy){
+                if(other.GetComponent<EnemyCloseRange>())other.GetComponent<EnemyCloseRange>().Damage(dmgValue, stunTime);
+                if(other.GetComponent<EnemyLongRange>())other.GetComponent<EnemyLongRange>().Damage(dmgValue, stunTime);
+                if(other.GetComponent<EnemyCloseExplosive>())other.GetComponent<EnemyCloseExplosive>().Damage(dmgValue, stunTime);
+                if(other.GetComponent<EnemyDasher>())other.GetComponent<EnemyDasher>().Damage(dmgValue, stunTime);
             }
             else if(!playerOrEnemy && other.tag == "Player"){
                 other.GetComponent<PlayerMovement>().Damage(dmgValue, stunTime);

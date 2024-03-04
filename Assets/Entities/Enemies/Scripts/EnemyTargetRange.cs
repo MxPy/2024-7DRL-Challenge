@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.UIElements;
-public class EnemyDasher : MonoBehaviour
+
+public class EnemyTargetRange : MonoBehaviour
 {
-    //[SerializeField] Transform target;
+    // Start is called before the first frame update
     [SerializeField] int HP = 6;
     [SerializeField] float speed = 10f;
     [SerializeField]  float range = 1f;
     [SerializeField] GameObject bullet;
     VariableTimer attackTimer;
+    VariableTimer delayTimer;
     VariableTimer stunTimer;
     int actualTarget = 0, nextTarget = 1;
     [SerializeField]float cooldownTime = 1.5f;
@@ -29,7 +30,8 @@ public class EnemyDasher : MonoBehaviour
         gameObject.transform.position = targetList[actualTarget].transform.position;
         stunTimer = gameObject.AddComponent(typeof(VariableTimer)) as VariableTimer;
         attackTimer = gameObject.AddComponent(typeof(VariableTimer)) as VariableTimer;
-        bullet.GetComponent<Attack>().Setup(new Vector3(0,0,0), 2, 0.2f, false);
+        delayTimer = gameObject.AddComponent(typeof(VariableTimer)) as VariableTimer;
+        
     }
 
     private void Update() {
@@ -42,6 +44,23 @@ public class EnemyDasher : MonoBehaviour
                 nextTarget = 0;
             }
             attackTimer.StartTimer(cooldownTime);
+        }
+        if(attackTimer.started == true){
+            if(delayTimer.started == false){
+                Bullet bulletInstance = Instantiate(bullet,transform.position+Vector3.left, transform.rotation).GetComponent<Bullet>();
+                bulletInstance.Setup(Vector3.left, 2, 0.2f,10f, false);
+
+                bulletInstance = Instantiate(bullet,transform.position+Vector3.right, transform.rotation).GetComponent<Bullet>();
+                bulletInstance.Setup(Vector3.right, 2, 0.2f,10f, false);
+
+                bulletInstance = Instantiate(bullet,transform.position+Vector3.up, transform.rotation).GetComponent<Bullet>();
+                bulletInstance.Setup(Vector3.up, 2, 0.2f,10f, false);
+
+               bulletInstance = Instantiate(bullet,transform.position+Vector3.down, transform.rotation).GetComponent<Bullet>();
+                bulletInstance.Setup(Vector3.down, 2, 0.2f,10f, false);
+                
+                delayTimer.StartTimer(0.2f);
+            }
         }
         if(attackTimer.finished == true){
             agent.SetDestination(targetList[actualTarget].transform.position);
@@ -62,23 +81,14 @@ public class EnemyDasher : MonoBehaviour
             stunTimer.ResetTimer();
             
         }
-        
+        if(delayTimer.finished == true){
+            delayTimer.ResetTimer();
+        }
         if(HP <= 0){
             Destroy(gameObject);
         }
     }
-    void LateUpdate()
-    {
-        Vector3 worldDirectionToPointForward = agent.velocity.normalized;
-        Vector3 localDirectionToPointForward = Vector3.right;
-
-        Vector3 currentWorldForwardDirection = transform.TransformDirection(
-                localDirectionToPointForward);
-        float angleDiff = Vector3.SignedAngle(currentWorldForwardDirection, 
-                worldDirectionToPointForward, Vector3.forward);
-
-        transform.Rotate(Vector3.forward, angleDiff, Space.World);
-    }
+    
 
     public void Damage(int dmgValue, float stunTime = 0.2f){
         HP -= dmgValue;
@@ -92,3 +102,4 @@ public class EnemyDasher : MonoBehaviour
         return n;
     }
 }
+
