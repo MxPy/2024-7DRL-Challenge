@@ -40,6 +40,7 @@ public class Bullet : MonoBehaviour
                 if(other.GetComponent<EnemyLongRange>())other.GetComponent<EnemyLongRange>().Damage(dmgValue, stunTime);
                 if(other.GetComponent<EnemyCloseExplosive>())other.GetComponent<EnemyCloseExplosive>().Damage(dmgValue, stunTime);
                 if(other.GetComponent<EnemyDasher>())other.GetComponent<EnemyDasher>().Damage(dmgValue, stunTime);
+                if(other.GetComponent<HeartBoss>())other.GetComponent<HeartBoss>().Damage(dmgValue, stunTime);
             }
             else if(!playerOrEnemy && other.tag == "Player"){
                 other.GetComponent<PlayerMovement>().Damage(dmgValue, stunTime);
