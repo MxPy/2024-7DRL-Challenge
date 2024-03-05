@@ -159,8 +159,9 @@ GameObject:
   - component: {fileID: 38198003}
   - component: {fileID: 38198002}
   - component: {fileID: 38198001}
+  - component: {fileID: 38198006}
   m_Layer: 6
-  m_Name: enemy (1)
+  m_Name: trombocyt
   m_TagString: EnemyLongRange
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -201,7 +202,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.42, y: 1.45}
+    oldSize: {x: 1.92, y: 1.92}
     newSize: {x: 1.42, y: 1.45}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -273,9 +274,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: aaf187afea78b2b4eb13fa9f0d46bd6d, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_FlipX: 0
+  m_Sprite: {fileID: 188552838, guid: f5515aeef98ce664ab6e24ca78f01753, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.42, y: 1.45}
@@ -299,6 +300,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &38198006
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38198000}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 45979f96ecf2c4d4bbb88e1071206fb0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &81202515
 GameObject:
   m_ObjectHideFlags: 0
@@ -690,6 +712,7 @@ GameObject:
   - component: {fileID: 164115461}
   - component: {fileID: 164115460}
   - component: {fileID: 164115464}
+  - component: {fileID: 164115465}
   m_Layer: 6
   m_Name: enemy (4)
   m_TagString: EnemyCloseRange
@@ -714,7 +737,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.42, y: 1.45}
+    oldSize: {x: 1.92, y: 1.92}
     newSize: {x: 1.42, y: 1.45}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -786,8 +809,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: aaf187afea78b2b4eb13fa9f0d46bd6d, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 641741679, guid: 6a6df737456cb874f8e3a287ed5b8c1f, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -834,6 +857,27 @@ MonoBehaviour:
   - {fileID: 928571815}
   - {fileID: 1948977893}
   - {fileID: 804234775}
+--- !u!95 &164115465
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164115458}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee1f8306d677a314a9c2e14b08d713d7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &182583522 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 984152504724513482, guid: ea9c3b0447333dc4a8b892b18def2400, type: 3}
@@ -1283,7 +1327,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6.03817
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1873,6 +1917,7 @@ GameObject:
   - component: {fileID: 1164273943}
   - component: {fileID: 1164273942}
   - component: {fileID: 1164273941}
+  - component: {fileID: 1164273946}
   m_Layer: 6
   m_Name: enemy (2)
   m_TagString: EnemyCloseRange
@@ -2018,6 +2063,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1164273946
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164273940}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5a400390d64ee9e4480ebe23962c6522, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1261707672
 GameObject:
   m_ObjectHideFlags: 0
