@@ -171,7 +171,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void DefaultMovment(){
         // don't quite need this since movement animation is always the same
-        /*
+        // will leave that for future
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         
@@ -179,7 +179,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetFloat("Horizontal", movement.x);
             animator.SetFloat("Vertical", movement.y);
         }
-        */
+        
         animator.SetFloat("Speed", movement.sqrMagnitude);
     }
 
