@@ -714,7 +714,7 @@ GameObject:
   - component: {fileID: 164115464}
   - component: {fileID: 164115465}
   m_Layer: 6
-  m_Name: enemy (4)
+  m_Name: bazofil
   m_TagString: EnemyCloseRange
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

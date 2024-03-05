@@ -28,7 +28,7 @@ public class VariableTimer : MonoBehaviour
     }
 
     private IEnumerator RunTimer()
-    {
+    {   
         while (Time.time < actualTimeOfEvent)
             yield return null;
         finished = true;
