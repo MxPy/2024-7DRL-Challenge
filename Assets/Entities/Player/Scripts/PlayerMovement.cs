@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
     bool notInvincible = true;
     VariableTimer attackTimer;
-    //public Animator animator;
+    public Animator animator;
     VariableTimer modfifierTimer;
     Vector2 movement;
 
@@ -170,8 +170,17 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void DefaultMovment(){
+        // don't quite need this since movement animation is always the same
+        // will leave that for future
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
+        
+        if(movement != Vector2.zero){
+            animator.SetFloat("Horizontal", movement.x);
+            animator.SetFloat("Vertical", movement.y);
+        }
+        
+        animator.SetFloat("Speed", movement.sqrMagnitude);
     }
 
     private void DefaultDmg(){
