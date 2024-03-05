@@ -32,6 +32,8 @@ public class HeartBoss : MonoBehaviour
     [SerializeField] GameObject animLeftTop, animLeftBottom, animRightTop, animRightBottom;
     [SerializeField] GameObject hitboxLeftTop, hitboxLeftBottom, hitboxRightTop, hitboxRightBottom;
     [SerializeField] int specialAttackCounter = 0;
+    [SerializeField] SpriteRenderer ren;
+    [SerializeField] BoxCollider2D col;
     
 
 
@@ -56,13 +58,12 @@ public class HeartBoss : MonoBehaviour
         animLeftBottom.SetActive(false);
         animRightTop.SetActive(false);
         animRightBottom.SetActive(false);
+
+        specialAttackTimerChuj.StartTimer(5);
     }
 
     private void Update() {
-        if(specialAttackTimerChuj.started == false){
-            specialAttackTimerChuj.StartTimer(specialAttackTime);
-        }
-        if(specialAttackTimerChuj.finished == false){
+        if(specialAttackTimerChuj.finished == false && specialAttackTimerChuj.started == true){
             switch(phase) {
             case 0:
                 PhaseOne();
@@ -84,6 +85,8 @@ public class HeartBoss : MonoBehaviour
             }
         }
         if(specialAttackTimerChuj.finished == true){
+            ren.enabled = false;
+            col.enabled = false;
             notInvincible = false;
             SpecialAttack();
         }
@@ -99,7 +102,6 @@ public class HeartBoss : MonoBehaviour
             SpecialAttackDmg(animLeftTop, hitboxLeftTop);
             break;
         case 1:
-        Debug.Log("chujj");
             SpecialAttackDmg(animLeftBottom, hitboxLeftBottom);
             break;
         case 2:
@@ -112,6 +114,9 @@ public class HeartBoss : MonoBehaviour
             notInvincible = true;
             specialAttackCounter = 0;
             specialAttackTimerChuj.ResetTimer();
+            specialAttackTimerChuj.StartTimer(5);
+            ren.enabled = true;
+            col.enabled = true;
             break;
         }   
            
@@ -129,7 +134,7 @@ public class HeartBoss : MonoBehaviour
             specialAttackTimerChujChujChuj.StartTimer(specialAttackTimeChujChujChuj);
         }
         if(specialAttackTimerChujChujChuj.finished == true){
-            Debug.Log("chujsa");
+            //Debug.Log("chujsa");
             specialAttackTimerChujChuj.ResetTimer();
             specialAttackTimerChujChujChuj.ResetTimer();
             hitboxLeftTop.SetActive(false);

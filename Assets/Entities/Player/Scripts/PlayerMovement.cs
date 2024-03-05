@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 
 //TODO: Rename to PlayerController
@@ -23,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
     VariableTimer modfifierTimer;
     Vector2 movement;
+    
 
     int dmgModifier = 1;
     int dmgModifierUpgrade  = 2;

@@ -750,7 +750,7 @@ MonoBehaviour:
   cooldownTime: 1.5
   attackTime: 0.5
   delayTime: 0.2
-  specialAttackTime: 10
+  specialAttackTime: 5
   specialAttackTimeChuj: 2
   specialAttackTimeChujChuj: 1
   specialAttackTimeChujChujChuj: 0.2
@@ -763,6 +763,8 @@ MonoBehaviour:
   hitboxRightTop: {fileID: 89224676}
   hitboxRightBottom: {fileID: 69188825}
   specialAttackCounter: 0
+  ren: {fileID: 798646866}
+  col: {fileID: 798646864}
 --- !u!95 &798646869
 Animator:
   serializedVersion: 5
