@@ -47,14 +47,14 @@ public class PlayerMovement : MonoBehaviour
         if(this.movmentModifier[movmentModifierV] == false){
             switch(movmentModifierV) {
             case 0:
-                speed += 1f;
+                speed += 2f;
                 this.defaultSpeed = speed;
                 break;
             case 1:
                 this.maxHP += 3;
                 break;
             case 2:
-                this.attackSpeed -= 0.5f;
+                this.attackSpeed -= 0.1f;
                 break;
             case 3:
                 // code block
@@ -122,7 +122,7 @@ public class PlayerMovement : MonoBehaviour
 
         switch(otherModifier) {
         case 0:
-            //DefaultDmg();
+            //
             break;
         case 1:
             Invincible();
@@ -131,10 +131,10 @@ public class PlayerMovement : MonoBehaviour
             SpeedyBoy();
             break;
         case 3:
-            // code block
+            AttackSpeed();
             break;
         case 4:
-            // code block
+            Heal();
             break;
         case 5:
             // code block
@@ -166,6 +166,22 @@ public class PlayerMovement : MonoBehaviour
         }
         if(modfifierTimer.finished == true){
              speed = speed/1.5f;
+            otherModifier = 0;
+            modfifierTimer.ResetTimer();
+        }
+    }
+
+    private void Heal(){
+        HP += HP/2;
+        otherModifier = 0;
+    }
+    private void AttackSpeed(){
+        if(modfifierTimer.started == false){
+            modfifierTimer.StartTimer(5);
+            attackSpeed = attackSpeed*1.5f;
+        }
+        if(modfifierTimer.finished == true){
+            attackSpeed = attackSpeed/1.5f;
             otherModifier = 0;
             modfifierTimer.ResetTimer();
         }
