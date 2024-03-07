@@ -205,23 +205,27 @@ public class PlayerMovement : MonoBehaviour
         switch(dmgModifierUpgrade) {
         case 0:
                 //TODO: change attack cooldown time
-            if (Input.GetKeyDown(KeyCode.LeftArrow) && attackTimer.started == false){
-                attackTimer.StartTimer(this.attackSpeed);
+            if (Input.GetKeyDown(KeyCode.LeftArrow)){
+                
+                
                 if(type == 0) shoot(0);
                 else if(type == 1) attack(0);
             } 
-            else if (Input.GetKeyDown(KeyCode.UpArrow) && attackTimer.started == false){
-                attackTimer.StartTimer(this.attackSpeed);
+            else if (Input.GetKeyDown(KeyCode.UpArrow)){
+                
+                
                 if(type == 0) shoot(1);
                 else if(type == 1) attack(1);
             } 
-            else if (Input.GetKeyDown(KeyCode.RightArrow) && attackTimer.started == false){
-                attackTimer.StartTimer(this.attackSpeed);
+            else if (Input.GetKeyDown(KeyCode.RightArrow)){
+                
+                
                 if(type == 0) shoot(2);
                 else if(type == 1) attack(2);
             } 
-            else if (Input.GetKeyDown(KeyCode.DownArrow) && attackTimer.started == false){
-                attackTimer.StartTimer(this.attackSpeed);
+            else if (Input.GetKeyDown(KeyCode.DownArrow)){
+                
+                
                 if(type == 0) shoot(3);
                 else if(type == 1) attack(3);
             }
@@ -246,7 +250,8 @@ public class PlayerMovement : MonoBehaviour
         case 0:
                 //TODO: change attack cooldown time
             if (attackTimer.started == false  && (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))){
-                attackTimer.StartTimer(this.attackSpeed);
+                
+                
                 if(type == 0){
                     shoot(0);
                     shoot(2);
@@ -257,7 +262,8 @@ public class PlayerMovement : MonoBehaviour
                 } 
             } 
             else if (attackTimer.started == false && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) )){
-                attackTimer.StartTimer(this.attackSpeed);
+                
+                
                 if(type == 0){
                     shoot(1);
                     shoot(3);
@@ -274,7 +280,8 @@ public class PlayerMovement : MonoBehaviour
         case 1:
                 //TODO: change attack cooldown time
             if (attackTimer.started == false  && (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) )){
-                attackTimer.StartTimer(this.attackSpeed);
+                
+                
                 if(type == 0){
                     shoot(0);
                     shoot(2);
@@ -296,7 +303,8 @@ public class PlayerMovement : MonoBehaviour
             
                 //TODO: change attack cooldown time
             if (attackTimer.started == false  && (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) )){
-                attackTimer.StartTimer(this.attackSpeed);
+                
+                
                 if(type == 0){
                     shoot(0);
                     shoot(2);
@@ -331,8 +339,9 @@ public class PlayerMovement : MonoBehaviour
         switch(dmgModifierUpgrade) {
         case 0:
                 //TODO: change attack cooldown time
-            if (Input.GetKeyDown(KeyCode.LeftArrow) && attackTimer.started == false){
-                attackTimer.StartTimer(this.attackSpeed);
+            if (Input.GetKeyDown(KeyCode.LeftArrow)){
+                
+                
                 if(type == 0){
                     shoot(Vector3.left+(Vector3.up/2));
                     shoot(Vector3.left+(Vector3.down/2));
@@ -342,8 +351,9 @@ public class PlayerMovement : MonoBehaviour
                     attack(Vector3.left+(Vector3.down/2));
                 } 
             } 
-            else if (Input.GetKeyDown(KeyCode.UpArrow) && attackTimer.started == false){
-                attackTimer.StartTimer(this.attackSpeed);
+            else if (Input.GetKeyDown(KeyCode.UpArrow)){
+                
+                
                 if(type == 0){
                     shoot(Vector3.up+(Vector3.left/2));
                     shoot(Vector3.up+(Vector3.right/2));
@@ -354,8 +364,9 @@ public class PlayerMovement : MonoBehaviour
                 }
                 
             } 
-            else if (Input.GetKeyDown(KeyCode.RightArrow) && attackTimer.started == false){
-                attackTimer.StartTimer(this.attackSpeed);
+            else if (Input.GetKeyDown(KeyCode.RightArrow)){
+                
+                
                 if(type == 0){
                     shoot(Vector3.right+(Vector3.up/2));
                     shoot(Vector3.right+(Vector3.down/2));
@@ -365,8 +376,9 @@ public class PlayerMovement : MonoBehaviour
                     attack(Vector3.right+(Vector3.down/2));
                 }
             } 
-            else if (Input.GetKeyDown(KeyCode.DownArrow) && attackTimer.started == false){
-                attackTimer.StartTimer(this.attackSpeed);
+            else if (Input.GetKeyDown(KeyCode.DownArrow)){
+                
+                
                 if(type == 0){
                     shoot(Vector3.down+(Vector3.left/2));
                     shoot(Vector3.down+(Vector3.right/2));
@@ -382,8 +394,9 @@ public class PlayerMovement : MonoBehaviour
             break;
         case 1:
                 //TODO: change attack cooldown time
-            if (Input.GetKeyDown(KeyCode.LeftArrow) && attackTimer.started == false){
-                attackTimer.StartTimer(this.attackSpeed);
+            if (Input.GetKeyDown(KeyCode.LeftArrow)){
+                
+                
                 if(type == 0){
                     shoot(Vector3.left+(Vector3.up/2));
                     shoot(Vector3.left+(Vector3.down/2));
@@ -397,8 +410,9 @@ public class PlayerMovement : MonoBehaviour
                     attack(Vector3.left+(Vector3.down*0.25f));
                 } 
             } 
-            else if (Input.GetKeyDown(KeyCode.UpArrow) && attackTimer.started == false){
-                attackTimer.StartTimer(this.attackSpeed);
+            else if (Input.GetKeyDown(KeyCode.UpArrow)){
+                
+                
                 if(type == 0){
                     shoot(Vector3.up+(Vector3.left/2));
                     shoot(Vector3.up+(Vector3.right/2));
@@ -413,8 +427,9 @@ public class PlayerMovement : MonoBehaviour
                 }
                 
             } 
-            else if (Input.GetKeyDown(KeyCode.RightArrow) && attackTimer.started == false){
-                attackTimer.StartTimer(this.attackSpeed);
+            else if (Input.GetKeyDown(KeyCode.RightArrow)){
+                
+                
                 if(type == 0){
                     shoot(Vector3.right+(Vector3.up/2));
                     shoot(Vector3.right+(Vector3.down/2));
@@ -428,8 +443,9 @@ public class PlayerMovement : MonoBehaviour
                     attack(Vector3.right+(Vector3.down*0.25f));
                 }
             } 
-            else if (Input.GetKeyDown(KeyCode.DownArrow) && attackTimer.started == false){
-                attackTimer.StartTimer(this.attackSpeed);
+            else if (Input.GetKeyDown(KeyCode.DownArrow)){
+                
+                
                 if(type == 0){
                     shoot(Vector3.down+(Vector3.left/2));
                     shoot(Vector3.down+(Vector3.right/2));
@@ -449,8 +465,9 @@ public class PlayerMovement : MonoBehaviour
             break;
         case 2:
                 //TODO: change attack cooldown time
-            if (Input.GetKeyDown(KeyCode.LeftArrow) && attackTimer.started == false){
-                attackTimer.StartTimer(this.attackSpeed);
+            if (Input.GetKeyDown(KeyCode.LeftArrow)){
+                
+                
                 if(type == 0){
                     shoot(Vector3.left+(Vector3.up/2));
                     shoot(Vector3.left+(Vector3.down/2));
@@ -468,8 +485,9 @@ public class PlayerMovement : MonoBehaviour
                     attack(Vector3.left+(Vector3.down*0.125f));
                 } 
             } 
-            else if (Input.GetKeyDown(KeyCode.UpArrow) && attackTimer.started == false){
-                attackTimer.StartTimer(this.attackSpeed);
+            else if (Input.GetKeyDown(KeyCode.UpArrow)){
+                
+                
                 if(type == 0){
                     shoot(Vector3.up+(Vector3.left/2));
                     shoot(Vector3.up+(Vector3.right/2));
@@ -488,8 +506,9 @@ public class PlayerMovement : MonoBehaviour
                 }
                 
             } 
-            else if (Input.GetKeyDown(KeyCode.RightArrow) && attackTimer.started == false){
-                attackTimer.StartTimer(this.attackSpeed);
+            else if (Input.GetKeyDown(KeyCode.RightArrow)){
+                
+                
                 if(type == 0){
                     shoot(Vector3.right+(Vector3.up/2));
                     shoot(Vector3.right+(Vector3.down/2));
@@ -507,8 +526,9 @@ public class PlayerMovement : MonoBehaviour
                     attack(Vector3.right+(Vector3.down*0.125f));
                 }
             } 
-            else if (Input.GetKeyDown(KeyCode.DownArrow) && attackTimer.started == false){
-                attackTimer.StartTimer(this.attackSpeed);
+            else if (Input.GetKeyDown(KeyCode.DownArrow)){
+                
+                
                 if(type == 0){
                     shoot(Vector3.down+(Vector3.left/2));
                     shoot(Vector3.down+(Vector3.right/2));
