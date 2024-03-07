@@ -26,11 +26,11 @@ public class PlayerMovement : MonoBehaviour
     Vector2 movement;
     
 
-    int dmgModifier = 1;
-    int dmgModifierUpgrade  = 2;
+    int dmgModifier = 0;
+    public int dmgModifierUpgrade  = 0;
     List<bool> movmentModifier = new() { false, false, false, false, false};
     int otherModifier = 0;
-    int otherModifierUpgrade  = 0;
+    public int otherModifierUpgrade  = 0;
     private void Start() {
         this.defaultSpeed = speed;
         this.maxHP = HP;
