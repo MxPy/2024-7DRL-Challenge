@@ -45,5 +45,25 @@ public class LevelManager : MonoBehaviour
             }
         }
         
+        // may change to spawn postfight or during fight
+        if(itemId != -1){
+            GameObject item = Instantiate(items[itemId]);
+        }
+
+        if(bossId != -1){
+            GameObject boss = Instantiate(bosses[bossId]);
+            switch(bossId) {
+            case 0:
+                //heart
+                boss.transform.Find("Boss").GetComponent<HeartBoss>().target = player;
+                break;
+            case 1:
+                //
+                break;
+            case 2:
+                //
+                break;
+            }
+        }
     }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2993500114460898991}
   - component: {fileID: 8210323962667821789}
   - component: {fileID: 26041519118388929}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: heartBossBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
