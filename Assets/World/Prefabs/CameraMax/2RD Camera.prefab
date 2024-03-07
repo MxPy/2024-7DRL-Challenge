@@ -75,6 +75,7 @@ MonoBehaviour:
   cameraPrefab:
   - {fileID: 786233438994695806, guid: 8814a47d8c6752a48a5d236303d75c72, type: 3}
   - {fileID: 786233438994695806, guid: 8814a47d8c6752a48a5d236303d75c72, type: 3}
+  lvl: {fileID: 0}
 --- !u!1 &786233438994695806
 GameObject:
   m_ObjectHideFlags: 0
@@ -87,6 +88,7 @@ GameObject:
   - component: {fileID: 786233438994695805}
   - component: {fileID: 786233438994695807}
   - component: {fileID: 7905686116443634851}
+  - component: {fileID: 9073164216376582765}
   m_Layer: 0
   m_Name: 2RD Camera
   m_TagString: MainCamera
@@ -181,6 +183,20 @@ MonoBehaviour:
   - {fileID: 3998034918279209243, guid: aee19a392576981419cbfb67b89add26, type: 3}
   - {fileID: 3998034918279209243, guid: 00c9eaaa208c13744afc848515521103, type: 3}
   - {fileID: 3998034918279209243, guid: 52a607623b2bf6643b64048745f57def, type: 3}
+--- !u!114 &9073164216376582765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786233438994695806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 488bfee21cebd4b4097ae603a11b8e55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lvl: {fileID: 0}
+  gen: {fileID: 0}
 --- !u!1 &1327910588165869861
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,6 +272,7 @@ MonoBehaviour:
   cameraPrefab:
   - {fileID: 786233438994695806, guid: 8953ee640db9e7b429ae651361cf92d0, type: 3}
   - {fileID: 786233438994695806, guid: 592366a2eef4ebe409f3611e1bda0d20, type: 3}
+  lvl: {fileID: 0}
 --- !u!1 &3398089035131266266
 GameObject:
   m_ObjectHideFlags: 0

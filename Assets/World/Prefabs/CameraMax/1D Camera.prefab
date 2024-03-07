@@ -180,6 +180,7 @@ MonoBehaviour:
   cameraPrefab:
   - {fileID: 786233438994695806, guid: 8953ee640db9e7b429ae651361cf92d0, type: 3}
   - {fileID: 786233438994695806}
+  lvl: {fileID: 0}
 --- !u!1 &5688128558545315036
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,6 +191,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1100208647732160612}
   - component: {fileID: 6199732598555016746}
+  - component: {fileID: 5847608872471163614}
   m_Layer: 0
   m_Name: rooms_20
   m_TagString: Untagged
@@ -264,3 +266,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5847608872471163614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5688128558545315036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 488bfee21cebd4b4097ae603a11b8e55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lvl: {fileID: 0}
+  gen: {fileID: 0}

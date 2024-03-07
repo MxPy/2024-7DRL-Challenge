@@ -5,9 +5,11 @@ using UnityEngine;
 public class LevelChange : MonoBehaviour
 {
     public Transform newPlacement;
+    //public LevelManager lvl;
     public Transform[] placementsList;
     //public GenerateLevel generator;
     void Start(){
+        //lvl = GameObject.FindGameObjectsWithTag("LevelManager")[9].GetComponent<LevelManager>();
         //move2()
         int num = RandomLevel(0,1);
         if(placementsList[num] == null){
@@ -18,6 +20,7 @@ public class LevelChange : MonoBehaviour
         transform.position = placementsList[num].position;
         transform.rotation = placementsList[num].rotation;
         transform.localScale = placementsList[num].localScale;
+        //lvl.UpdateLevel(transform.position, transform.rotation, transform.localScale,0, -1, -1, -1);
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if(player == null){
@@ -46,6 +49,8 @@ public class LevelChange : MonoBehaviour
         transform.position = newPlacement.position;
         transform.rotation = newPlacement.rotation;
         transform.localScale = newPlacement.localScale;
+        //lvl.UpdateLevel(transform.position, transform.rotation, transform.localScale,0, -1, -1, -1);
+        
     }
 
     public void CameraMove2(){
@@ -60,6 +65,7 @@ public class LevelChange : MonoBehaviour
         transform.position = placementsList[num].position;
         transform.rotation = placementsList[num].rotation;
         transform.localScale = placementsList[num].localScale;
+        //lvl.UpdateLevel(transform.position, transform.rotation, transform.localScale,0, -1, -1, -1);
     }
     
 }

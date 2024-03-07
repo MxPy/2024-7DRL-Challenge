@@ -133,9 +133,10 @@ GameObject:
   m_Component:
   - component: {fileID: 330274085}
   - component: {fileID: 330274084}
+  - component: {fileID: 330274086}
   m_Layer: 0
   m_Name: LevelManager
-  m_TagString: Untagged
+  m_TagString: LevelManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -176,6 +177,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &330274086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330274083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 934b83c9f97143747b0920b1566b11e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelCounter: 0
 --- !u!1001 &439325184
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -183,6 +197,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 50250305950677093, guid: 4c6943e0c8d98844da82699c0c31bdff, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 695818073664384175, guid: 4c6943e0c8d98844da82699c0c31bdff, type: 3}
       propertyPath: lvl
       value: 

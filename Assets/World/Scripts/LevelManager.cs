@@ -14,7 +14,8 @@ public class LevelManager : MonoBehaviour
 
 
     // Start is called before the first frame update
-    public void UpdateLevel(int roomId, int enemyId = -1, int itemId = -1, int bossId = -1){
+    public void UpdateLevel(Vector3 position, int roomId, int enemyId = -1, int itemId = -1, int bossId = -1){
+        //Debug.Log("chujj " + position);
         Destroy(lastRoom);
         lastRoom = new GameObject("Master");
 
@@ -25,6 +26,7 @@ public class LevelManager : MonoBehaviour
         // Im so dumb, for not using OOP
         if(enemyId != -1){
             GameObject enemy = Instantiate(enemies[enemyId]);
+            enemy.transform.parent = lastRoom.transform;
             switch(enemyId) {
             case 0:
                 //trombocyt
@@ -48,10 +50,12 @@ public class LevelManager : MonoBehaviour
         // may change to spawn postfight or during fight
         if(itemId != -1){
             GameObject item = Instantiate(items[itemId]);
+            item.transform.parent = lastRoom.transform;
         }
 
         if(bossId != -1){
             GameObject boss = Instantiate(bosses[bossId]);
+            boss.transform.parent = lastRoom.transform;
             switch(bossId) {
             case 0:
                 //heart
@@ -65,5 +69,6 @@ public class LevelManager : MonoBehaviour
                 break;
             }
         }
+        lastRoom.transform.position = position;
     }
 }

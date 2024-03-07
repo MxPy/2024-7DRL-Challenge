@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 786233438994695805}
   - component: {fileID: 786233438994695807}
   - component: {fileID: 695818073664384175}
+  - component: {fileID: 3515179573005535780}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -98,6 +99,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d07942b66916df246badb92408716088, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lvl: {fileID: 0}
+--- !u!114 &3515179573005535780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786233438994695806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 488bfee21cebd4b4097ae603a11b8e55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lvl: {fileID: 0}
+  gen: {fileID: 0}
 --- !u!1 &1327910588165869861
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,6 +191,7 @@ MonoBehaviour:
   - {fileID: 786233438994695806, guid: 86f760e615c85bd4b866ac533d53ccc6, type: 3}
   - {fileID: 786233438994695806, guid: 86f760e615c85bd4b866ac533d53ccc6, type: 3}
   - {fileID: 786233438994695806, guid: 86f760e615c85bd4b866ac533d53ccc6, type: 3}
+  lvl: {fileID: 0}
 --- !u!114 &5748423792506693226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,6 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d07942b66916df246badb92408716088, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lvl: {fileID: 0}
 --- !u!1 &5497922717429750739
 GameObject:
   m_ObjectHideFlags: 0
