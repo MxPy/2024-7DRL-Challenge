@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyLongRange : MonoBehaviour
 {
-     [SerializeField] Transform target;
+    public Transform target;
     [SerializeField] int HP = 6;
     [SerializeField] float speed = 3.5f;
     [SerializeField]  float range = 5;

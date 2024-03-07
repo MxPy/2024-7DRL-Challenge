@@ -9,7 +9,7 @@ public class HeartBoss : MonoBehaviour
     [SerializeField] int HP;
     [SerializeField] int maxHP = 100;
     [SerializeField] GameObject bullet;
-    [SerializeField] Transform target;
+    public Transform target;
 
     //temp public
     public int phase = 0;
