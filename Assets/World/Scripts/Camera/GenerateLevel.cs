@@ -10,6 +10,6 @@ public class GenerateLevel : MonoBehaviour
     }
 
     private void Start() {
-        lvl.UpdateLevel(0);
+        lvl.UpdateLevel(0, 0);
     }
 }

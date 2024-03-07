@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyCloseExplosive : MonoBehaviour
 {
-    [SerializeField] Transform target;
+    public Transform target;
     [SerializeField] int HP = 1;
     [SerializeField] float speed = 3.5f;
     [SerializeField]  float range = 0.45f;
