@@ -51,7 +51,9 @@ public class EnemyCloseRange : MonoBehaviour
 
     public void Death(){
         LevelManager lvl = GameObject.FindGameObjectsWithTag("LevelManager")[0].GetComponent<LevelManager>();
-        lvl.OpenDoor();
+        if(GameObject.FindGameObjectsWithTag ("enemy").Length <= 1){
+            lvl.OpenDoor();
+        }
         Generator gen = GameObject.FindGameObjectsWithTag("LevelManager")[0].GetComponent<Generator>();
         gen.isEnemy = false;
         Destroy(gameObject);

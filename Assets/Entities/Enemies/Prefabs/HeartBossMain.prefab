@@ -236,14 +236,14 @@ MonoBehaviour:
   bullet: {fileID: 984152504724513482, guid: 8edb40815788e2344bae2be70561f767, type: 3}
   target: {fileID: 0}
   phase: 0
-  bulletSpeed: 5
-  cooldownTime: 1.5
-  attackTime: 0.5
-  delayTime: 0.2
   specialAttackTime: 5
   specialAttackTimeChuj: 2
   specialAttackTimeChujChuj: 0.4
   specialAttackTimeChujChujChuj: 0.2
+  bulletSpeed: 5
+  cooldownTime: 1.5
+  attackTime: 0.5
+  delayTime: 0.2
   animLeftTop: {fileID: 1040861361812866203}
   animLeftBottom: {fileID: 1040861362415248839}
   animRightTop: {fileID: 1040861362190357520}
@@ -605,7 +605,7 @@ GameObject:
   - component: {fileID: 8037477267445543900}
   m_Layer: 0
   m_Name: HeartBossMain
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -300,6 +300,7 @@ MonoBehaviour:
   enemy3: {fileID: 0}
   target: {fileID: 0}
   phase: 0
+  posTran: {fileID: 0}
   bulletSpeed: 5
   cooldownTime: 1.5
   attackTime: 2
@@ -768,7 +769,7 @@ GameObject:
   - component: {fileID: 2507129730941709510}
   m_Layer: 0
   m_Name: BossMain2
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -45,19 +45,41 @@ public class Generator : MonoBehaviour
     public int getLevelId(){
         
         //change to acurate bossid
-        if(isBoss && levelCounter == 8) currentLevelId = 0;
-        if(isBoss && levelCounter == 15) currentLevelId = 1;
+        if(levelCounter < 1) currentLevelId = 11;
+        else if(isBoss && levelCounter == 8) currentLevelId = 0;
+        else if(isBoss && levelCounter == 15) currentLevelId = 11;
+        else if(isBoss && levelCounter == 20) currentLevelId = 18;
+        else if(levelCounter < 8) currentLevelId = Random.Range(0, 8);
+        else if(levelCounter > 8 && levelCounter < 15) currentLevelId = Random.Range(11, 18);
+        else if(levelCounter > 15) currentLevelId = Random.Range(18, 22);
+        
+        
         return currentLevelId;
     }
     public int getEnemyId(){
         if(isBoss) currentItemId = -1;
         else if(Random.Range(0, 2) == 1 && itemsInFirstLevel>0) currentEnemyId = -1;
         else{
+            if(levelCounter < 8){
             if(enemiesiInFirstLevel > 0){
                 enemiesiInFirstLevel--;
                 currentEnemyId = Random.Range(0, 3);
                 isEnemy = true;
+                }
+            }else if(levelCounter > 8 && levelCounter < 15){
+                if(enemiesiInSecondLevel > 0){
+                enemiesiInSecondLevel--;
+                currentEnemyId = Random.Range(0, 3);
+                isEnemy = true;
+                }
+            }else if(levelCounter > 15){
+                if(enemiesiInThirdLevel > 0){
+                enemiesiInThirdLevel--;
+                currentEnemyId = Random.Range(0, 3);
+                isEnemy = true;
+                }
             }
+            
             
         }
         //Debug.Log(currentEnemyId);
@@ -67,9 +89,25 @@ public class Generator : MonoBehaviour
         if(isBoss) currentItemId = -1;
         else if(isEnemy) currentItemId = -1;
         else{
-            if(itemsInFirstLevel > 0){
-                itemsInFirstLevel--;
+            if(levelCounter < 8){
+            if(enemiesiInFirstLevel > 0){
+                if(itemsInFirstLevel > 0){
+                    itemsInFirstLevel--;
+                    currentItemId = Random.Range(0, 6);
+                }
+                }
+            }else if(levelCounter > 8 && levelCounter < 15){
+                if(itemsInSecondtLevel > 0){
+                itemsInSecondtLevel--;
                 currentItemId = Random.Range(0, 3);
+                isEnemy = true;
+                }
+            }else if(levelCounter > 15){
+                if(itemsInThirdLevel > 0){
+                itemsInThirdLevel--;
+                currentEnemyId = Random.Range(0, 3);
+                isEnemy = true;
+                }
             }
         }
         return currentItemId;
@@ -82,11 +120,15 @@ public class Generator : MonoBehaviour
         currentBossId = -1;
         levelCounter++;
         if(levelCounter == 8){
-            currentBossId = 0;
+            currentBossId = 1;
             isBoss = true;
         }
         else if(levelCounter == 15){
-            currentBossId = 1;
+            currentBossId = 0;
+            isBoss = true;
+        }
+        else if(levelCounter == 20){
+            currentBossId = 2;
             isBoss = true;
         }else{
             currentBossId = -1;

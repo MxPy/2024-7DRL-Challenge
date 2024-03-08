@@ -9,6 +9,9 @@ public class LevelManager : MonoBehaviour
     [SerializeField] List<GameObject> enemies = new();
     [SerializeField] List<GameObject> items = new();
     [SerializeField] List<GameObject> bosses = new();
+    [SerializeField] Sprite red;
+    [SerializeField] Sprite white;
+    [SerializeField] Sprite blue;
     GameObject[] doors;
 
     GameObject lastRoom = null;
@@ -31,6 +34,16 @@ public class LevelManager : MonoBehaviour
         doors = GameObject.FindGameObjectsWithTag("Door");
         foreach (GameObject door in doors){
             door.GetComponent<BoxCollider2D>().enabled = false;
+            if(GameObject.FindGameObjectsWithTag("LevelManager")[0].GetComponent<Generator>().levelCounter <= 8)
+            door.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = blue;
+            else if(GameObject.FindGameObjectsWithTag("LevelManager")[0].GetComponent<Generator>().levelCounter > 8 && GameObject.FindGameObjectsWithTag("LevelManager")[0].GetComponent<Generator>().levelCounter <= 15)
+            door.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = red;
+            else{
+                door.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = white;
+            }
+
+            
+            
             door.transform.GetChild(0).gameObject.SetActive(false);
         }
         if(enemyId == -1 && itemId == -1 && bossId == -1){
@@ -40,7 +53,7 @@ public class LevelManager : MonoBehaviour
         if(enemyId != -1){
             
             GameObject enemy = Instantiate(enemies[enemyId], lastRoom.transform);
-            enemy.transform.position += Vector3.up*4;
+            enemy.transform.position += Vector3.up*Random.Range(-1, 2)*2;
             // enemy.transform.parent = lastRoom.transform;
             // enemy.transform.localPosition = new Vector3(0,0,0);
             // enemy.transform.position = -enemy.transform.position;
@@ -69,11 +82,11 @@ public class LevelManager : MonoBehaviour
         
         // may change to spawn postfight or during fight
         if(itemId != -1){
-            Debug.Log("kuuuutas "+itemId);
+            //Debug.Log("kuuuutas "+itemId);
             
             GameObject item = Instantiate(items[itemId], lastRoom.transform);
             Debug.Log(items[itemId].name);
-            item.transform.position += Vector3.up*4;
+            item.transform.position += Vector3.up*Random.Range(-1, 2)*2;
             //item.transform.parent = lastRoom.transform;
             OpenDoor();
         }
@@ -92,7 +105,7 @@ public class LevelManager : MonoBehaviour
                 boss.transform.Find("Boss").GetComponent<PneuBoss>().posTran = lastRoom.transform;
                 break;
             case 2:
-                //
+                boss.transform.Find("Boss").GetComponent<BrainBoss>().target = player;
                 break;
             }
         }
