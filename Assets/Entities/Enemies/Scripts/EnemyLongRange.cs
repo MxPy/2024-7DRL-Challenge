@@ -50,8 +50,14 @@ public class EnemyLongRange : MonoBehaviour
             attackTimer.ResetTimer();
         }
         if(HP <= 0){
-            Destroy(gameObject);
+            Death();
         }
+    }
+
+    public void Death(){
+        LevelManager lvl = GameObject.FindGameObjectsWithTag("LevelManager")[0].GetComponent<LevelManager>();
+        lvl.OpenDoor();
+        Destroy(gameObject);
     }
 
     public void Damage(int dmgValue, float stunTime = 0.2f){

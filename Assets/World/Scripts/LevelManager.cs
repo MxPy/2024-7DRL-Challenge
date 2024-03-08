@@ -24,7 +24,7 @@ public class LevelManager : MonoBehaviour
         room.transform.Find("NavMesh").GetComponent<NavMeshPlus.Components.NavMeshSurface>().BuildNavMesh();
         room.transform.parent = lastRoom.transform;
 
-        GameObject[] doors = GameObject.FindGameObjectsWithTag("Door");
+        doors = GameObject.FindGameObjectsWithTag("Door");
         foreach (GameObject door in doors){
             door.GetComponent<BoxCollider2D>().enabled = false;
             door.transform.GetChild(0).gameObject.SetActive(false);
@@ -34,6 +34,7 @@ public class LevelManager : MonoBehaviour
         }
         // Im so dumb, for not using OOP
         if(enemyId != -1){
+            OpenDoor();
             GameObject enemy = Instantiate(enemies[enemyId]);
             enemy.transform.parent = lastRoom.transform;
             switch(enemyId) {
@@ -42,7 +43,8 @@ public class LevelManager : MonoBehaviour
                 enemy.GetComponent<EnemyLongRange>().target = player;
                 break;
             case 1:
-                //
+                //explo
+                enemy.GetComponent<EnemyCloseExplosive>().target = player;
                 break;
             case 2:
                 //
@@ -54,6 +56,7 @@ public class LevelManager : MonoBehaviour
                 // code block
                 break;
             }
+            enemy.transform.localEulerAngles = new Vector3(0,0,0);
         }
         
         // may change to spawn postfight or during fight

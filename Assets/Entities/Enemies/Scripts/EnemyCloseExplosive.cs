@@ -54,6 +54,7 @@ public class EnemyCloseExplosive : MonoBehaviour
                 //start animation
                 
                 if(explosionTimer.finished == true){
+                    animator.SetBool("explo", false);
                     Destroy(gameObject);
                 }
             }
@@ -66,8 +67,14 @@ public class EnemyCloseExplosive : MonoBehaviour
             attackTimer.ResetTimer();
         }
         if(HP <= 0){
-            Destroy(gameObject);
+            Death();
         }
+    }
+
+    public void Death(){
+        LevelManager lvl = GameObject.FindGameObjectsWithTag("LevelManager")[0].GetComponent<LevelManager>();
+        lvl.OpenDoor();
+        Destroy(gameObject);
     }
 
     public void Damage(int dmgValue, float stunTime = 0.2f){

@@ -158,6 +158,7 @@ MonoBehaviour:
   - {fileID: 786233438994695806, guid: 6fb8a8c6f22d3df41b6cc01de88e4d97, type: 3}
   enemies:
   - {fileID: 3297136149578917058, guid: 89120e607b0d2fd4ca9050cd206cd50e, type: 3}
+  - {fileID: 2240064856202870185, guid: c33b77da7fdfed34bb7d2753e6aa0c84, type: 3}
   items:
   - {fileID: 601035640656566394, guid: caae5bdf0c78e364d9462a8cc3eb1f7f, type: 3}
   bosses:
