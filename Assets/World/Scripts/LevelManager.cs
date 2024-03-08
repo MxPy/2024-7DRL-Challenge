@@ -69,7 +69,10 @@ public class LevelManager : MonoBehaviour
         
         // may change to spawn postfight or during fight
         if(itemId != -1){
+            Debug.Log("kuuuutas "+itemId);
+            
             GameObject item = Instantiate(items[itemId], lastRoom.transform);
+            Debug.Log(items[itemId].name);
             item.transform.position += Vector3.up*4;
             //item.transform.parent = lastRoom.transform;
             OpenDoor();

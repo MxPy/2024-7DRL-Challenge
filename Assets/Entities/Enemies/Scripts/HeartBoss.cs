@@ -20,15 +20,16 @@ public class HeartBoss : MonoBehaviour
     VariableTimer specialAttackTimerChuj;
     VariableTimer specialAttackTimerChujChuj;
     VariableTimer specialAttackTimerChujChujChuj;
+    [SerializeField] float specialAttackTime = 5;
+    [SerializeField] float specialAttackTimeChuj = 2f;
+    [SerializeField] float specialAttackTimeChujChuj = 1.0f;
+    [SerializeField] float specialAttackTimeChujChujChuj = 0.2f;
     bool notInvincible = true;
     [SerializeField] float bulletSpeed = 5f;
     [SerializeField]float cooldownTime = 1.5f;
     [SerializeField]float attackTime = 2.0f;
     [SerializeField]float delayTime = 0.2f;
-    [SerializeField] float specialAttackTime = 5;
-    [SerializeField] float specialAttackTimeChuj = 2f;
-    [SerializeField] float specialAttackTimeChujChuj = 1.0f;
-    [SerializeField] float specialAttackTimeChujChujChuj = 0.2f;
+    
     [SerializeField] GameObject animLeftTop, animLeftBottom, animRightTop, animRightBottom;
     [SerializeField] GameObject hitboxLeftTop, hitboxLeftBottom, hitboxRightTop, hitboxRightBottom;
     [SerializeField] int specialAttackCounter = 0;

@@ -125,6 +125,7 @@ public class PneuBoss : MonoBehaviour
         lvl.OpenDoor();
         Generator gen = GameObject.FindGameObjectsWithTag("LevelManager")[0].GetComponent<Generator>();
         gen.isBoss = false;
+
         Destroy(gameObject);
     }
 

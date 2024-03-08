@@ -27,9 +27,13 @@ public class EnemyDasher : MonoBehaviour
         agent.updateUpAxis = false;
         agent.speed = speed;
         gameObject.transform.position = targetList[actualTarget].transform.position;
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+        transform.localRotation = Quaternion.Euler(0, 0, 0);
+        transform.Find("monocyt_0").transform.rotation = Quaternion.Euler(0, 0, 0);
         stunTimer = gameObject.AddComponent(typeof(VariableTimer)) as VariableTimer;
         attackTimer = gameObject.AddComponent(typeof(VariableTimer)) as VariableTimer;
         bullet.GetComponent<Attack>().Setup(new Vector3(0,0,0), 2, 0.2f, false);
+        
     }
 
     private void Update() {
@@ -64,8 +68,16 @@ public class EnemyDasher : MonoBehaviour
         }
         
         if(HP <= 0){
-            Destroy(gameObject);
+            Death();
         }
+    }
+
+    public void Death(){
+        LevelManager lvl = GameObject.FindGameObjectsWithTag("LevelManager")[0].GetComponent<LevelManager>();
+        lvl.OpenDoor();
+        Generator gen = GameObject.FindGameObjectsWithTag("LevelManager")[0].GetComponent<Generator>();
+        gen.isEnemy = false;
+        Destroy(gameObject);
     }
     void LateUpdate()
     {

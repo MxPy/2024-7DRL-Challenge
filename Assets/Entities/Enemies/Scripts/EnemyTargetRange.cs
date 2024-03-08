@@ -31,6 +31,7 @@ public class EnemyTargetRange : MonoBehaviour
         stunTimer = gameObject.AddComponent(typeof(VariableTimer)) as VariableTimer;
         attackTimer = gameObject.AddComponent(typeof(VariableTimer)) as VariableTimer;
         delayTimer = gameObject.AddComponent(typeof(VariableTimer)) as VariableTimer;
+        transform.rotation = Quaternion.Euler(0, 0, 0);
         
     }
 
@@ -85,10 +86,16 @@ public class EnemyTargetRange : MonoBehaviour
             delayTimer.ResetTimer();
         }
         if(HP <= 0){
-            Destroy(gameObject);
+            Death();
         }
     }
-    
+    public void Death(){
+        LevelManager lvl = GameObject.FindGameObjectsWithTag("LevelManager")[0].GetComponent<LevelManager>();
+        lvl.OpenDoor();
+        Generator gen = GameObject.FindGameObjectsWithTag("LevelManager")[0].GetComponent<Generator>();
+        gen.isEnemy = false;
+        Destroy(gameObject);
+    }
 
     public void Damage(int dmgValue, float stunTime = 0.2f){
         HP -= dmgValue;

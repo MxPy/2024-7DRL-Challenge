@@ -17,17 +17,17 @@ public class Generator : MonoBehaviour
     /// 16 - 19 => brain lvls -- 1-2 items / - upgrade
     /// 20 => brain boss
     /// </summary>
-    int enemiesiInFirstLevel = 0;
-    int itemsInFirstLevel = 0;
+    public int enemiesiInFirstLevel = 0;
+    public int itemsInFirstLevel = 0;
     int enemiesiInSecondLevel = 0;
     int itemsInSecondtLevel = 0;
     int enemiesiInThirdLevel = 0;
     int itemsInThirdLevel = 0;
 
-    int currentLevelId = 0;
-    int currentEnemyId = -1;
-    int currentItemId = -1;
-    int currentBossId = -1;
+    public int currentLevelId = 0;
+    public int currentEnemyId = -1;
+    public int currentItemId = -1;
+    public int currentBossId = -1;
     // Start is called before the first frame updateew
 
     public bool isBoss = false, isEnemy = false;
@@ -45,22 +45,44 @@ public class Generator : MonoBehaviour
     public int getLevelId(){
         
         //change to acurate bossid
-        //if(isBoss && levelCounter == 8) currentLevelId = 0;
-        if(isBoss && levelCounter == 8) currentLevelId = 1;
+        if(isBoss && levelCounter == 8) currentLevelId = 0;
+        if(isBoss && levelCounter == 15) currentLevelId = 1;
         return currentLevelId;
     }
     public int getEnemyId(){
         if(isBoss) currentItemId = -1;
+        else if(Random.Range(0, 2) == 1 && itemsInFirstLevel>0) currentEnemyId = -1;
+        else{
+            if(enemiesiInFirstLevel > 0){
+                enemiesiInFirstLevel--;
+                currentEnemyId = Random.Range(0, 3);
+                isEnemy = true;
+            }
+            
+        }
+        //Debug.Log(currentEnemyId);
         return currentEnemyId;
     }
     public int getItemId(){
         if(isBoss) currentItemId = -1;
+        else if(isEnemy) currentItemId = -1;
+        else{
+            if(itemsInFirstLevel > 0){
+                itemsInFirstLevel--;
+                currentItemId = Random.Range(0, 3);
+            }
+        }
         return currentItemId;
     }
     public int getBossId(){
+        isBoss = false;
+        isEnemy = false;
+        currentEnemyId = -1;
+        currentItemId = -1;
+        currentBossId = -1;
         levelCounter++;
         if(levelCounter == 8){
-            currentBossId = 1;
+            currentBossId = 0;
             isBoss = true;
         }
         else if(levelCounter == 15){

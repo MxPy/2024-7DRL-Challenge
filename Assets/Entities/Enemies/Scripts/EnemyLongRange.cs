@@ -27,6 +27,7 @@ public class EnemyLongRange : MonoBehaviour
         agent.speed = speed;
         transform.rotation = Quaternion.Euler(0, 0, 0);
         
+        
         stunTimer = gameObject.AddComponent(typeof(VariableTimer)) as VariableTimer;
         attackTimer = gameObject.AddComponent(typeof(VariableTimer)) as VariableTimer;
     }
@@ -59,6 +60,8 @@ public class EnemyLongRange : MonoBehaviour
     public void Death(){
         LevelManager lvl = GameObject.FindGameObjectsWithTag("LevelManager")[0].GetComponent<LevelManager>();
         lvl.OpenDoor();
+        Generator gen = GameObject.FindGameObjectsWithTag("LevelManager")[0].GetComponent<Generator>();
+        gen.isEnemy = false;
         Destroy(gameObject);
     }
 
