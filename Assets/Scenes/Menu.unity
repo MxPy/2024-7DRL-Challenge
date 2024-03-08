@@ -1955,6 +1955,7 @@ GameObject:
   - component: {fileID: 543440267}
   - component: {fileID: 543440266}
   - component: {fileID: 543440265}
+  - component: {fileID: 543440268}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2028,6 +2029,102 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &543440268
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543440264}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 630dc37d354d002498c779c1599ed791, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &548303530
 GameObject:
   m_ObjectHideFlags: 0
@@ -2171,7 +2268,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: This character is not fully developed, keep that in mind when choosing
-    it
+    it (so even if you choose him you will play a different character ;])
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3ad6c39fe27bafa4c935093323cda9f9, type: 2}
   m_sharedMaterial: {fileID: -4605749408211353540, guid: 3ad6c39fe27bafa4c935093323cda9f9, type: 2}
@@ -5389,7 +5486,7 @@ MonoBehaviour:
   - {fileID: 1492030085, guid: d14715de2bf972f4fa018f4a4516a541, type: 3}
   - {fileID: 1383048673, guid: dc469142c8fa92b4c94b26c18700fbf8, type: 3}
   playerSprite: {fileID: 5706627719514395283}
-  sceneLoad: BossArena
+  sceneLoad: MapTestMax
   warning: {fileID: 652828152}
 --- !u!4 &1652662654
 Transform:

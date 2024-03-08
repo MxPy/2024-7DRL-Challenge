@@ -43,7 +43,7 @@ public class ChoosePlayer : MonoBehaviour
     }
 
     public void LoadGame(){
-        PrefabUtility.SaveAsPrefabAsset(playerSprite, "Assets/Entities/Player/Prefabs/player1_0.prefab");
+        //PrefabUtility.SaveAsPrefabAsset(playerSprite, "Assets/Entities/Player/Prefabs/player1_0.prefab");
         SceneManager.LoadScene(sceneLoad);
     }
 

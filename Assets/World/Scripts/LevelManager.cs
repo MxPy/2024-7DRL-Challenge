@@ -16,11 +16,16 @@ public class LevelManager : MonoBehaviour
 
     GameObject lastRoom = null;
 
+    int temp;
+
+    
+
 
     // Start is called before the first frame update
-    public void UpdateLevel(Vector3 position, int roomId, int enemyId = -1, int itemId = -1, int bossId = -1){
+    public void UpdateLevel(int counter, Vector3 position, int roomId, int enemyId = -1, int itemId = -1, int bossId = -1){
         //Debug.Log("chujj " + position);
         if(lastRoom) Destroy(lastRoom);
+        temp = counter;
         lastRoom = new GameObject("Master");
         lastRoom.transform.position = position;
 
@@ -62,20 +67,57 @@ public class LevelManager : MonoBehaviour
             switch(enemyId) {
             case 0:
                 //trombocyt
+                if(temp < 8)
                 enemy.GetComponent<EnemyLongRange>().target = player;
+                else if(temp > 8 && temp <15){
+                    enemy.GetComponent<EnemyLongRange>().target = player;
+                    enemy.GetComponent<EnemyLongRange>().target = player;
+                }else{
+                    enemy.GetComponent<EnemyLongRange>().target = player;
+                    enemy.GetComponent<EnemyLongRange>().target = player;
+                    enemy.GetComponent<EnemyLongRange>().target = player;
+                }
                 break;
             case 1:
                 //explo
+                if(temp < 8)
                 enemy.GetComponent<EnemyCloseExplosive>().target = player;
+                else if(temp > 8 && temp <15){
+                    enemy.GetComponent<EnemyCloseExplosive>().target = player;
+                    enemy.GetComponent<EnemyCloseExplosive>().target = player;
+                }else{
+                    enemy.GetComponent<EnemyCloseExplosive>().target = player;
+                    enemy.GetComponent<EnemyCloseExplosive>().target = player;
+                    enemy.GetComponent<EnemyCloseExplosive>().target = player;
+                }
+                
                 break;
             case 2:
                 //
                 break;
             case 3:
-                // code block
+                if(temp < 8)
+                enemy.GetComponent<EnemyCloseRange>().target = player;
+                else if(temp > 8 && temp <15){
+                    enemy.GetComponent<EnemyCloseRange>().target = player;
+                    enemy.GetComponent<EnemyCloseRange>().target = player;
+                }else{
+                    enemy.GetComponent<EnemyCloseRange>().target = player;
+                    enemy.GetComponent<EnemyCloseRange>().target = player;
+                    enemy.GetComponent<EnemyCloseRange>().target = player;
+                }
                 break;
             case 4:
-                // code block
+                if(temp < 8)
+                enemy.GetComponent<EnemyCloseRange>().target = player;
+                else if(temp > 8 && temp <15){
+                    enemy.GetComponent<EnemyCloseRange>().target = player;
+                    enemy.GetComponent<EnemyCloseRange>().target = player;
+                }else{
+                    enemy.GetComponent<EnemyCloseRange>().target = player;
+                    enemy.GetComponent<EnemyCloseRange>().target = player;
+                    enemy.GetComponent<EnemyCloseRange>().target = player;
+                }
                 break;
             }
         }

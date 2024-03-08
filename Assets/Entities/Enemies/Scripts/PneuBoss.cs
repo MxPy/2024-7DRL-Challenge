@@ -9,6 +9,7 @@ public class PneuBoss : MonoBehaviour
     [SerializeField] GameObject enemy;
     [SerializeField] GameObject enemy2;
     [SerializeField] GameObject enemy3;
+    public GameObject item;
     public Transform target;
 
     //temp public
@@ -127,7 +128,7 @@ public class PneuBoss : MonoBehaviour
         }
         Generator gen = GameObject.FindGameObjectsWithTag("LevelManager")[0].GetComponent<Generator>();
         gen.isBoss = false;
-
+        Instantiate(item, transform);
         Destroy(gameObject);
     }
 
