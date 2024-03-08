@@ -45,10 +45,10 @@ public class HeartBoss : MonoBehaviour
         specialAttackTimerChuj = gameObject.AddComponent(typeof(VariableTimer)) as VariableTimer;
         specialAttackTimerChujChuj = gameObject.AddComponent(typeof(VariableTimer)) as VariableTimer;
         specialAttackTimerChujChujChuj = gameObject.AddComponent(typeof(VariableTimer)) as VariableTimer;
-        hitboxLeftTop.GetComponent<Attack>().Setup(new Vector3(0,0,0), 5, 0.2f, false);
-        hitboxLeftBottom.GetComponent<Attack>().Setup(new Vector3(0,0,0), 5, 0.2f, false);
-        hitboxRightTop.GetComponent<Attack>().Setup(new Vector3(0,0,0), 5, 0.2f, false);
-        hitboxRightBottom.GetComponent<Attack>().Setup(new Vector3(0,0,0), 5, 0.2f, false);
+        hitboxLeftTop.GetComponent<Attack>().Setup(new Vector3(0,0,0), 5, 0.2f, false, false);
+        hitboxLeftBottom.GetComponent<Attack>().Setup(new Vector3(0,0,0), 5, 0.2f, false, false);
+        hitboxRightTop.GetComponent<Attack>().Setup(new Vector3(0,0,0), 5, 0.2f, false, false);
+        hitboxRightBottom.GetComponent<Attack>().Setup(new Vector3(0,0,0), 5, 0.2f, false, false);
         hitboxLeftTop.SetActive(false);
         hitboxLeftBottom.SetActive(false);
         hitboxRightTop.SetActive(false);

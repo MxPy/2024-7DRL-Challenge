@@ -46,6 +46,13 @@ public class PneuBoss : MonoBehaviour
         specialAttackTimerChujChuj = gameObject.AddComponent(typeof(VariableTimer)) as VariableTimer;
         specialAttackTimerChujChujChuj = gameObject.AddComponent(typeof(VariableTimer)) as VariableTimer;
 
+
+        animLeft.GetComponent<Attack>().Setup(new Vector3(0,0,0), 200, 0.2f, false, false);
+        animBottom.GetComponent<Attack>().Setup(new Vector3(0,0,0), 200, 0.2f, false, false);
+        animTop.GetComponent<Attack>().Setup(new Vector3(0,0,0), 200, 0.2f, false, false);
+        animRight.GetComponent<Attack>().Setup(new Vector3(0,0,0), 200, 0.2f, false, false);
+
+
         animLeft.SetActive(false);
         animBottom.SetActive(false);
         animTop.SetActive(false);
@@ -91,13 +98,14 @@ public class PneuBoss : MonoBehaviour
     private void SpecialAttack(){
         
         if(specialAttackTimerChujChuj.started == false) {
-            specialAttackTimerChujChuj.StartTimer(3);
+            specialAttackTimerChujChuj.StartTimer(2);
             animLeft.SetActive(true);
             animBottom.SetActive(true);
             animTop.SetActive(true);
             animRight.SetActive(true);
         }
-        if(specialAttackTimerChuj.finished == true){
+        if(specialAttackTimerChujChuj.finished == true && specialAttackTimerChujChuj.started == true){
+            animator.SetBool("attack", false);
             animLeft.SetActive(false);
             animBottom.SetActive(false);
             animTop.SetActive(false);
@@ -119,7 +127,7 @@ public class PneuBoss : MonoBehaviour
                 if(phaseShootTimer.started == false) phaseShootTimer.StartTimer(attackTime);
             }
         }
-        Debug.Log(shootCunter);
+       // Debug.Log(shootCunter);
         if(shootCunter == 3){
             if(delayTimer.started == false){
                 delayTimer.StartTimer(delayTime);
