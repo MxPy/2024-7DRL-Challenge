@@ -8,7 +8,7 @@ public class Generator : MonoBehaviour
     public int levelCounter =0;
 
     int currentLevelId = 0;
-    int currentEnemyId = 1;
+    int currentEnemyId = 0;
     int currentItemId = -1;
     int currentBossId = -1;
     // Start is called before the first frame updateew
