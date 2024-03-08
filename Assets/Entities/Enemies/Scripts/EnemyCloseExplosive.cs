@@ -10,6 +10,7 @@ public class EnemyCloseExplosive : MonoBehaviour
     [SerializeField] float speed = 3.5f;
     [SerializeField]  float range = 0.45f;
     [SerializeField] GameObject explsionHitbox;
+    [SerializeField] Animator animator;
     VariableTimer attackTimer;
     VariableTimer explosionTimer;
     VariableTimer stunTimer;
@@ -31,7 +32,7 @@ public class EnemyCloseExplosive : MonoBehaviour
     private void Update() {
         agent.SetDestination(target.position);
         float distance = Vector3.Distance(transform.position, target.position);
-        Debug.Log(distance);
+        //Debug.Log(distance);
         if (distance <= range){
             startExp = true;
             
@@ -39,14 +40,17 @@ public class EnemyCloseExplosive : MonoBehaviour
         if(startExp){
             agent.speed = 0;
             agent.velocity = new Vector3(0,0,0);
-            if(attackTimer.started == false) attackTimer.StartTimer(0.2f);
+            animator.SetBool("explo", true);
+            if(attackTimer.started == false) attackTimer.StartTimer(0.4f);
             if(attackTimer.finished == true){
                 if(explosionTimer.started == false){
                     explosionTimer.StartTimer(0.2f);
+                    
                 } 
                 //Debug.Log("chujj");
+
                 explsionHitbox.SetActive(true);
-                explsionHitbox.GetComponent<Attack>().Setup(new Vector3(0,0,0), 2, 0.2f, false);
+                explsionHitbox.GetComponent<Attack>().Setup(new Vector3(0,0,0), 4, 0.2f, false);
                 //start animation
                 
                 if(explosionTimer.finished == true){
