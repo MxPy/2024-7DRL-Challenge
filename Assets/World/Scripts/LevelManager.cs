@@ -19,10 +19,13 @@ public class LevelManager : MonoBehaviour
         //Debug.Log("chujj " + position);
         if(lastRoom) Destroy(lastRoom);
         lastRoom = new GameObject("Master");
+        lastRoom.transform.position = position;
 
-        GameObject room = Instantiate(rooms[roomId]);
+        GameObject room = Instantiate(rooms[roomId], lastRoom.transform);
         room.transform.Find("NavMesh").GetComponent<NavMeshPlus.Components.NavMeshSurface>().BuildNavMesh();
-        room.transform.parent = lastRoom.transform;
+        //room.transform.parent = lastRoom.transform;
+
+        
 
         doors = GameObject.FindGameObjectsWithTag("Door");
         foreach (GameObject door in doors){
@@ -34,9 +37,14 @@ public class LevelManager : MonoBehaviour
         }
         // Im so dumb, for not using OOP
         if(enemyId != -1){
-            OpenDoor();
-            GameObject enemy = Instantiate(enemies[enemyId]);
-            enemy.transform.parent = lastRoom.transform;
+            
+            GameObject enemy = Instantiate(enemies[enemyId], lastRoom.transform);
+            enemy.transform.position += Vector3.up*4;
+            // enemy.transform.parent = lastRoom.transform;
+            // enemy.transform.localPosition = new Vector3(0,0,0);
+            // enemy.transform.position = -enemy.transform.position;
+            // Debug.Log(enemy.transform.localPosition);
+            //enemy.transform.localRotation = Quaternion.Euler(0f,0f,0f);
             switch(enemyId) {
             case 0:
                 //trombocyt
@@ -56,19 +64,19 @@ public class LevelManager : MonoBehaviour
                 // code block
                 break;
             }
-            enemy.transform.localEulerAngles = new Vector3(0,0,0);
         }
         
         // may change to spawn postfight or during fight
         if(itemId != -1){
-            GameObject item = Instantiate(items[itemId]);
-            item.transform.parent = lastRoom.transform;
+            GameObject item = Instantiate(items[itemId], lastRoom.transform);
+            item.transform.position += Vector3.up*4;
+            //item.transform.parent = lastRoom.transform;
             OpenDoor();
         }
 
         if(bossId != -1){
-            GameObject boss = Instantiate(bosses[bossId]);
-            boss.transform.parent = lastRoom.transform;
+            GameObject boss = Instantiate(bosses[bossId], lastRoom.transform);
+            //boss.transform.parent = lastRoom.transform;
             switch(bossId) {
             case 0:
                 //heart
@@ -82,10 +90,11 @@ public class LevelManager : MonoBehaviour
                 break;
             }
         }
-        lastRoom.transform.position = position;
+        
     }
 
     public void OpenDoor(){
+        doors = GameObject.FindGameObjectsWithTag("Door");
          foreach (GameObject door in doors){
             door.GetComponent<BoxCollider2D>().enabled = true;
             door.transform.GetChild(0).gameObject.SetActive(true);

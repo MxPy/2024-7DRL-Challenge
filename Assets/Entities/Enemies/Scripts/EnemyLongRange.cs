@@ -25,6 +25,8 @@ public class EnemyLongRange : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         agent.speed = speed;
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+        
         stunTimer = gameObject.AddComponent(typeof(VariableTimer)) as VariableTimer;
         attackTimer = gameObject.AddComponent(typeof(VariableTimer)) as VariableTimer;
     }
