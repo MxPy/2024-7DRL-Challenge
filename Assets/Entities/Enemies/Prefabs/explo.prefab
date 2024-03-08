@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2240064856202870190}
   m_Layer: 6
   m_Name: explo
-  m_TagString: EnemyCloseRange
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2240064856202870185}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.0607, y: 2.9152, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.51744676, y: 0.5054167, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -209,11 +209,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6522238048781159705, guid: 34eea9d2ed0a13f4a8626c30f0f5bb57, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.177
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6522238048781159705, guid: 34eea9d2ed0a13f4a8626c30f0f5bb57, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.011
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6522238048781159705, guid: 34eea9d2ed0a13f4a8626c30f0f5bb57, type: 3}
       propertyPath: m_LocalPosition.z

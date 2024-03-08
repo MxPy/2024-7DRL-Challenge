@@ -155,14 +155,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1436216875}
   rooms:
-  - {fileID: 786233438994695806, guid: 6fb8a8c6f22d3df41b6cc01de88e4d97, type: 3}
+  - {fileID: 786233438994695806, guid: 9fb57f4702a155946bd1b3174f100eb5, type: 3}
+  - {fileID: 786233438994695806, guid: ce55ba0a908a18e449d9ca2d1c021e8a, type: 3}
+  - {fileID: 786233438994695806, guid: 97e5aeb613bd5c347991be9fcda8205c, type: 3}
+  - {fileID: 786233438994695806, guid: 1ad64a26d4700fe4ab9c7bf6511b7e17, type: 3}
+  - {fileID: 786233438994695806, guid: fda5cd82a90ec1b43a9a04bb4e347d50, type: 3}
+  - {fileID: 786233438994695806, guid: 2d3c2589a1e926c4491f3498ebf89152, type: 3}
+  - {fileID: 786233438994695806, guid: a0ee07c7402c7804e84c7f312817eeb0, type: 3}
+  - {fileID: 786233438994695806, guid: 1d5eb4c073c24214f8d868c77efd6507, type: 3}
+  - {fileID: 786233438994695806, guid: 0db2b7cd80bbe974084d33f8921b3042, type: 3}
+  - {fileID: 786233438994695806, guid: 75b43e19516aad5499f319abd771b80b, type: 3}
+  - {fileID: 786233438994695806, guid: 23df0a71d1b9ee04a8707d1316a32049, type: 3}
+  - {fileID: 786233438994695806, guid: b1f682abcfa5fc940b564b1457c2f09a, type: 3}
+  - {fileID: 786233438994695806, guid: 404f0209686328b499aef621a4942caf, type: 3}
+  - {fileID: 786233438994695806, guid: 6a1b124e7344127429d99b9078eb4d84, type: 3}
+  - {fileID: 786233438994695806, guid: 2948644994cc71d47833de75cf9773a2, type: 3}
+  - {fileID: 786233438994695806, guid: 7d118e2351c395f44b6f73dbb0d60d37, type: 3}
+  - {fileID: 786233438994695806, guid: 8f9051b0ead7a3347aa212d7fed76e84, type: 3}
+  - {fileID: 786233438994695806, guid: 093ca4640cf6f1445a90e907c95d386f, type: 3}
+  - {fileID: 786233438994695806, guid: 3f028984babdb554e8ab8473ae11d5bd, type: 3}
+  - {fileID: 786233438994695806, guid: db54be5237e0ced4697ec0521df16752, type: 3}
+  - {fileID: 786233438994695806, guid: a5206e7187f93034e99af2f98becf2cb, type: 3}
+  - {fileID: 786233438994695806, guid: ca58e7f279bfd26409edde2bbdfcc792, type: 3}
   enemies:
   - {fileID: 3297136149578917058, guid: 89120e607b0d2fd4ca9050cd206cd50e, type: 3}
+  - {fileID: 2240064856202870185, guid: c33b77da7fdfed34bb7d2753e6aa0c84, type: 3}
+  - {fileID: 2559312053438501515, guid: ba929e44b135dd940883920d29ba4305, type: 3}
   items:
   - {fileID: 601035640656566394, guid: caae5bdf0c78e364d9462a8cc3eb1f7f, type: 3}
+  - {fileID: 5981349461230089799, guid: 63da756944c924d49a71adaaa43e7c52, type: 3}
+  - {fileID: 2721551473438678932, guid: 4bdd528051fead842aed5e79f6ff06d6, type: 3}
+  - {fileID: 2865521658352985923, guid: b32fc61c5353ebf49a22eea1b6143973, type: 3}
+  - {fileID: 3501875432491291403, guid: f5920bc32a12de14587beb701fc951d1, type: 3}
+  - {fileID: 1732499980908710398, guid: 1881613c51c66814ab3a5dccf04050f8, type: 3}
   bosses:
   - {fileID: 5416765677904025404, guid: 9019868ba9925a54bb1687839674d6c4, type: 3}
   - {fileID: 8951280750215111711, guid: 40973d01016de2745ac4fed5d8630de3, type: 3}
+  - {fileID: 5416765677904025404, guid: 424d5ef3ecf18374caf0a230cbe75ec8, type: 3}
+  red: {fileID: 87727118, guid: 866bb75a2051ead4a9f589282b1a7747, type: 3}
+  white: {fileID: -597143720, guid: 866bb75a2051ead4a9f589282b1a7747, type: 3}
+  blue: {fileID: 688836561, guid: 866bb75a2051ead4a9f589282b1a7747, type: 3}
 --- !u!4 &330274085
 Transform:
   m_ObjectHideFlags: 0
@@ -191,6 +223,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelCounter: 0
+  enemiesiInFirstLevel: 0
+  itemsInFirstLevel: 0
+  currentLevelId: 0
+  currentEnemyId: -1
+  currentItemId: -1
+  currentBossId: -1
+  isBoss: 0
+  isEnemy: 0
 --- !u!1001 &439325184
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11368,7 +11408,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.026031494, y: -0.078093916}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -11379,7 +11419,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.42, y: 1.45}
+  m_Size: {x: 0.534935, y: 0.8252482}
   m_EdgeRadius: 0
 --- !u!50 &1436216872
 Rigidbody2D:
@@ -11417,7 +11457,7 @@ MonoBehaviour:
   speed: 5
   defaultSpeed: 0
   rb: {fileID: 1436216872}
-  bullet: {fileID: 984152504724513482, guid: 052f1bc5bd688ed429f72ffe39ead183, type: 3}
+  bullet: {fileID: 984152504724513482, guid: 7f3bed891b10b094ab034db52d452d2d, type: 3}
   attackHitbox: {fileID: 984152504724513482, guid: 5e2b1dbbbbbdec94cb99f6fd6c06cfb5, type: 3}
   type: 0
   HP: 99999

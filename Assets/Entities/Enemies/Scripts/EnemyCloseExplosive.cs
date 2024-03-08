@@ -24,6 +24,7 @@ public class EnemyCloseExplosive : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         agent.speed = speed;
+        transform.rotation = Quaternion.Euler(0, 0, 0);
         stunTimer = gameObject.AddComponent(typeof(VariableTimer)) as VariableTimer;
         explosionTimer = gameObject.AddComponent(typeof(VariableTimer)) as VariableTimer;
         attackTimer = gameObject.AddComponent(typeof(VariableTimer)) as VariableTimer;
@@ -54,6 +55,7 @@ public class EnemyCloseExplosive : MonoBehaviour
                 //start animation
                 
                 if(explosionTimer.finished == true){
+                    animator.SetBool("explo", false);
                     Destroy(gameObject);
                 }
             }
@@ -66,8 +68,19 @@ public class EnemyCloseExplosive : MonoBehaviour
             attackTimer.ResetTimer();
         }
         if(HP <= 0){
-            Destroy(gameObject);
+            Death();
         }
+    }
+
+    public void Death(){
+        LevelManager lvl = GameObject.FindGameObjectsWithTag("LevelManager")[0].GetComponent<LevelManager>();
+        if(GameObject.FindGameObjectsWithTag ("enemy").Length <= 1){
+            lvl.OpenDoor();
+        }
+        
+        Generator gen = GameObject.FindGameObjectsWithTag("LevelManager")[0].GetComponent<Generator>();
+        gen.isEnemy = false;
+        Destroy(gameObject);
     }
 
     public void Damage(int dmgValue, float stunTime = 0.2f){

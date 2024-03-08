@@ -20,15 +20,16 @@ public class HeartBoss : MonoBehaviour
     VariableTimer specialAttackTimerChuj;
     VariableTimer specialAttackTimerChujChuj;
     VariableTimer specialAttackTimerChujChujChuj;
+    [SerializeField] float specialAttackTime = 5;
+    [SerializeField] float specialAttackTimeChuj = 2f;
+    [SerializeField] float specialAttackTimeChujChuj = 1.0f;
+    [SerializeField] float specialAttackTimeChujChujChuj = 0.2f;
     bool notInvincible = true;
     [SerializeField] float bulletSpeed = 5f;
     [SerializeField]float cooldownTime = 1.5f;
     [SerializeField]float attackTime = 2.0f;
     [SerializeField]float delayTime = 0.2f;
-    [SerializeField] float specialAttackTime = 5;
-    [SerializeField] float specialAttackTimeChuj = 2f;
-    [SerializeField] float specialAttackTimeChujChuj = 1.0f;
-    [SerializeField] float specialAttackTimeChujChujChuj = 0.2f;
+    
     [SerializeField] GameObject animLeftTop, animLeftBottom, animRightTop, animRightBottom;
     [SerializeField] GameObject hitboxLeftTop, hitboxLeftBottom, hitboxRightTop, hitboxRightBottom;
     [SerializeField] int specialAttackCounter = 0;
@@ -92,7 +93,7 @@ public class HeartBoss : MonoBehaviour
         }
         
         if(HP <= 0){
-            Destroy(gameObject);
+            Death();
         }
     }
     private void SpecialAttack(){
@@ -245,6 +246,15 @@ public class HeartBoss : MonoBehaviour
         
     }
     
+    public void Death(){
+        LevelManager lvl = GameObject.FindGameObjectsWithTag("LevelManager")[0].GetComponent<LevelManager>();
+        if(GameObject.FindGameObjectsWithTag ("enemy").Length <= 1){
+            lvl.OpenDoor();
+        }
+        Generator gen = GameObject.FindGameObjectsWithTag("LevelManager")[0].GetComponent<Generator>();
+        gen.isBoss = false;
+        Destroy(gameObject);
+    }
 
     public void Damage(int dmgValue, float stunTime = 0.2f){
         //Debug.Log("chuj");

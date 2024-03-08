@@ -21,6 +21,7 @@ public class PneuBoss : MonoBehaviour
     VariableTimer specialAttackTimerChujChuj;
     VariableTimer specialAttackTimerChujChujChuj;
     bool notInvincible = true;
+    public Transform posTran;
     [SerializeField] float bulletSpeed = 5f;
     [SerializeField]float cooldownTime = 1.5f;
     [SerializeField]float attackTime = 2.0f;
@@ -93,7 +94,7 @@ public class PneuBoss : MonoBehaviour
         }
         
         if(HP <= 0){
-            Destroy(gameObject);
+            Death();
         }
     }
     private void SpecialAttack(){
@@ -119,13 +120,23 @@ public class PneuBoss : MonoBehaviour
             specialAttackTimer.StartTimer(9);
         }  
     }
+    public void Death(){
+        LevelManager lvl = GameObject.FindGameObjectsWithTag("LevelManager")[0].GetComponent<LevelManager>();
+        if(GameObject.FindGameObjectsWithTag ("enemy").Length <= 1){
+            lvl.OpenDoor();
+        }
+        Generator gen = GameObject.FindGameObjectsWithTag("LevelManager")[0].GetComponent<Generator>();
+        gen.isBoss = false;
+
+        Destroy(gameObject);
+    }
 
     private void PhaseOne(){
         
         if(shootCunter == 0 || shootCunter == 1 || shootCunter == 2){
             if(delayTimer.started == false){
                 delayTimer.StartTimer(delayTime);
-                EnemyCloseExplosive en = Instantiate(enemy).GetComponent<EnemyCloseExplosive>();
+                EnemyCloseExplosive en = Instantiate(enemy, posTran).GetComponent<EnemyCloseExplosive>();
                 en.target = target;
                 if(phaseShootTimer.started == false) phaseShootTimer.StartTimer(attackTime);
             }
@@ -134,7 +145,7 @@ public class PneuBoss : MonoBehaviour
         if(shootCunter == 3){
             if(delayTimer.started == false){
                 delayTimer.StartTimer(delayTime);
-                EnemyLongRange en = Instantiate(enemy2).GetComponent<EnemyLongRange>();
+                EnemyLongRange en = Instantiate(enemy2, posTran).GetComponent<EnemyLongRange>();
                 en.target = target;
                 if(phaseShootTimer.started == false) phaseShootTimer.StartTimer(attackTime);
             }

@@ -38,8 +38,18 @@ public class EnemyCloseRangeFly : MonoBehaviour
             agent.speed = speed;
         }
         if(HP <= 0){
-            Destroy(gameObject);
+            Death();
         }
+    }
+
+    public void Death(){
+        LevelManager lvl = GameObject.FindGameObjectsWithTag("LevelManager")[0].GetComponent<LevelManager>();
+        if(GameObject.FindGameObjectsWithTag ("enemy").Length <= 1){
+            lvl.OpenDoor();
+        }
+        Generator gen = GameObject.FindGameObjectsWithTag("LevelManager")[0].GetComponent<Generator>();
+        gen.isEnemy = false;
+        Destroy(gameObject);
     }
 
     public void Damage(int dmgValue, float stunTime = 0.2f){
