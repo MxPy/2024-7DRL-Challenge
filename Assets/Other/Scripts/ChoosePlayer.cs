@@ -11,7 +11,21 @@ public class ChoosePlayer : MonoBehaviour
     private int chosenPlayer = 0;
     public GameObject playerSprite;
     public string sceneLoad;
+    public GameObject warning;
 
+    void Start(){
+        warning.SetActive(false);
+    }
+
+    void Update(){
+        if(chosenPlayer == 1){
+            warning.SetActive(true);
+        }
+        else{
+           warning.SetActive(false); 
+        }
+    }
+    
     public void Next(){
         chosenPlayer = chosenPlayer + 1;
         if(chosenPlayer == image.Count){
