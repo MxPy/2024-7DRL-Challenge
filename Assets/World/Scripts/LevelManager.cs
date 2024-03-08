@@ -22,6 +22,7 @@ public class LevelManager : MonoBehaviour
         lastRoom.transform.position = position;
 
         GameObject room = Instantiate(rooms[roomId], lastRoom.transform);
+        
         room.transform.Find("NavMesh").GetComponent<NavMeshPlus.Components.NavMeshSurface>().BuildNavMesh();
         //room.transform.parent = lastRoom.transform;
 
@@ -81,9 +82,11 @@ public class LevelManager : MonoBehaviour
             case 0:
                 //heart
                 boss.transform.Find("Boss").GetComponent<HeartBoss>().target = player;
+                
                 break;
             case 1:
                 boss.transform.Find("Boss").GetComponent<PneuBoss>().target = player;
+                boss.transform.Find("Boss").GetComponent<PneuBoss>().posTran = lastRoom.transform;
                 break;
             case 2:
                 //

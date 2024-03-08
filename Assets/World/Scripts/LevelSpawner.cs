@@ -11,7 +11,9 @@ public class LevelSpawner : MonoBehaviour
     {
         lvl = GameObject.FindGameObjectsWithTag("LevelManager")[0].GetComponent<LevelManager>();
         gen = GameObject.FindGameObjectsWithTag("LevelManager")[0].GetComponent<Generator>();
-        lvl.UpdateLevel(new Vector3(transform.position.x, transform.position.y, 0),gen.getLevelId(), gen.getEnemyId(), gen.getItemId(), gen.getBossId());
+        int bossId = gen.getBossId();
+        int enemyId = gen.getEnemyId();
+        lvl.UpdateLevel(new Vector3(transform.position.x, transform.position.y, 0),gen.getLevelId(), enemyId, gen.getItemId(), bossId);
     }
 
     public void spawn(){

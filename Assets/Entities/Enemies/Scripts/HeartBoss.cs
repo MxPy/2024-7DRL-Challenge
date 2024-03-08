@@ -92,7 +92,7 @@ public class HeartBoss : MonoBehaviour
         }
         
         if(HP <= 0){
-            Destroy(gameObject);
+            Death();
         }
     }
     private void SpecialAttack(){
@@ -245,6 +245,13 @@ public class HeartBoss : MonoBehaviour
         
     }
     
+    public void Death(){
+        LevelManager lvl = GameObject.FindGameObjectsWithTag("LevelManager")[0].GetComponent<LevelManager>();
+        lvl.OpenDoor();
+        Generator gen = GameObject.FindGameObjectsWithTag("LevelManager")[0].GetComponent<Generator>();
+        gen.isBoss = false;
+        Destroy(gameObject);
+    }
 
     public void Damage(int dmgValue, float stunTime = 0.2f){
         //Debug.Log("chuj");

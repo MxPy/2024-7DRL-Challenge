@@ -156,6 +156,7 @@ MonoBehaviour:
   player: {fileID: 1436216875}
   rooms:
   - {fileID: 786233438994695806, guid: 6fb8a8c6f22d3df41b6cc01de88e4d97, type: 3}
+  - {fileID: 786233438994695806, guid: f2cd04ce69363644ca98740d9d53291e, type: 3}
   enemies:
   - {fileID: 3297136149578917058, guid: 89120e607b0d2fd4ca9050cd206cd50e, type: 3}
   - {fileID: 2240064856202870185, guid: c33b77da7fdfed34bb7d2753e6aa0c84, type: 3}
@@ -192,6 +193,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelCounter: 0
+  isBoss: 0
+  isEnemy: 0
 --- !u!1001 &439325184
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11369,7 +11372,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.026031494, y: -0.078093916}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -11380,7 +11383,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.42, y: 1.45}
+  m_Size: {x: 0.534935, y: 0.8252482}
   m_EdgeRadius: 0
 --- !u!50 &1436216872
 Rigidbody2D:
