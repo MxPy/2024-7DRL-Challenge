@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 5695585032139514931}
   m_Layer: 6
   m_Name: Boss
-  m_TagString: EnemyCloseRange
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -294,10 +294,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 0
-  maxHP: 100
+  maxHP: 25
   enemy: {fileID: 2240064856202870185, guid: c33b77da7fdfed34bb7d2753e6aa0c84, type: 3}
   enemy2: {fileID: 3297136149578917058, guid: 89120e607b0d2fd4ca9050cd206cd50e, type: 3}
   enemy3: {fileID: 0}
+  item: {fileID: 1047102245409616350, guid: 0b450d46b713b0c45a4527eacd9aef04, type: 3}
   target: {fileID: 0}
   phase: 0
   posTran: {fileID: 0}
@@ -769,7 +770,7 @@ GameObject:
   - component: {fileID: 2507129730941709510}
   m_Layer: 0
   m_Name: BossMain2
-  m_TagString: enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

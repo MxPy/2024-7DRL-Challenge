@@ -10,6 +10,7 @@ public class HeartBoss : MonoBehaviour
     [SerializeField] int maxHP = 100;
     [SerializeField] GameObject bullet;
     public Transform target;
+    public GameObject item;
 
     //temp public
     public int phase = 0;
@@ -251,6 +252,7 @@ public class HeartBoss : MonoBehaviour
         if(GameObject.FindGameObjectsWithTag ("enemy").Length <= 1){
             lvl.OpenDoor();
         }
+        Instantiate(item, transform);
         Generator gen = GameObject.FindGameObjectsWithTag("LevelManager")[0].GetComponent<Generator>();
         gen.isBoss = false;
         Destroy(gameObject);

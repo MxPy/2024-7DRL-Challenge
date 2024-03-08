@@ -9,6 +9,7 @@ public class BrainBoss : MonoBehaviour
     [SerializeField] int maxHP = 100;
     [SerializeField] GameObject bullet;
     public Transform target;
+    public GameObject item;
 
     //temp public
     public int phase = 0;
@@ -269,10 +270,11 @@ public class BrainBoss : MonoBehaviour
     
     public void Death(){
         LevelManager lvl = GameObject.FindGameObjectsWithTag("LevelManager")[0].GetComponent<LevelManager>();
-        lvl.OpenDoor();
+        
         Generator gen = GameObject.FindGameObjectsWithTag("LevelManager")[0].GetComponent<Generator>();
         gen.isBoss = false;
         Destroy(gameObject);
+        item.SetActive(true);
     }
 
     public void Damage(int dmgValue, float stunTime = 0.2f){

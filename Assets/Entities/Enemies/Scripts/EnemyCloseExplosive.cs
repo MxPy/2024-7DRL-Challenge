@@ -56,7 +56,7 @@ public class EnemyCloseExplosive : MonoBehaviour
                 
                 if(explosionTimer.finished == true){
                     animator.SetBool("explo", false);
-                    Destroy(gameObject);
+                    Death();
                 }
             }
         }

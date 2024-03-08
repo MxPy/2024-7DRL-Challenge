@@ -63,19 +63,19 @@ public class Generator : MonoBehaviour
             if(levelCounter < 8){
             if(enemiesiInFirstLevel > 0){
                 enemiesiInFirstLevel--;
-                currentEnemyId = Random.Range(0, 3);
+                currentEnemyId = Random.Range(0, 5);
                 isEnemy = true;
                 }
             }else if(levelCounter > 8 && levelCounter < 15){
                 if(enemiesiInSecondLevel > 0){
                 enemiesiInSecondLevel--;
-                currentEnemyId = Random.Range(0, 3);
+                currentEnemyId = Random.Range(0, 5);
                 isEnemy = true;
                 }
             }else if(levelCounter > 15){
                 if(enemiesiInThirdLevel > 0){
                 enemiesiInThirdLevel--;
-                currentEnemyId = Random.Range(0, 3);
+                currentEnemyId = Random.Range(0, 5);
                 isEnemy = true;
                 }
             }
@@ -93,20 +93,18 @@ public class Generator : MonoBehaviour
             if(enemiesiInFirstLevel > 0){
                 if(itemsInFirstLevel > 0){
                     itemsInFirstLevel--;
-                    currentItemId = Random.Range(0, 6);
+                    currentItemId = Random.Range(0, 7);
                 }
                 }
             }else if(levelCounter > 8 && levelCounter < 15){
                 if(itemsInSecondtLevel > 0){
                 itemsInSecondtLevel--;
-                currentItemId = Random.Range(0, 3);
-                isEnemy = true;
+                currentItemId = Random.Range(0, 7);
                 }
             }else if(levelCounter > 15){
                 if(itemsInThirdLevel > 0){
                 itemsInThirdLevel--;
-                currentEnemyId = Random.Range(0, 3);
-                isEnemy = true;
+                currentEnemyId = Random.Range(0,7 );
                 }
             }
         }
