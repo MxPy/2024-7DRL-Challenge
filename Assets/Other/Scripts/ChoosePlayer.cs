@@ -9,7 +9,7 @@ public class ChoosePlayer : MonoBehaviour
     public SpriteRenderer player;
     public List<Sprite> image = new List<Sprite>();
     private int chosenPlayer = 0;
-    public GameObject playerImage;
+    public GameObject playerSprite;
     public string sceneLoad;
 
     public void Next(){
@@ -29,7 +29,7 @@ public class ChoosePlayer : MonoBehaviour
     }
 
     public void LoadGame(){
-        //PrefabUtility.SaveAsPrefabAsset(playerskin, "Assets/Player/Textures/selected.prefab");
+        PrefabUtility.SaveAsPrefabAsset(playerSprite, "Assets/Entities/Player/Prefabs/player1_0.prefab");
         SceneManager.LoadScene(sceneLoad);
     }
 }
