@@ -10,13 +10,13 @@ public class LevelManager : MonoBehaviour
     [SerializeField] List<GameObject> items = new();
     [SerializeField] List<GameObject> bosses = new();
 
-    GameObject lastRoom;
+    GameObject lastRoom = null;
 
 
     // Start is called before the first frame update
     public void UpdateLevel(Vector3 position, int roomId, int enemyId = -1, int itemId = -1, int bossId = -1){
         //Debug.Log("chujj " + position);
-        Destroy(lastRoom);
+        if(lastRoom) Destroy(lastRoom);
         lastRoom = new GameObject("Master");
 
         GameObject room = Instantiate(rooms[roomId]);
@@ -62,7 +62,7 @@ public class LevelManager : MonoBehaviour
                 boss.transform.Find("Boss").GetComponent<HeartBoss>().target = player;
                 break;
             case 1:
-                //
+                boss.transform.Find("Boss").GetComponent<PneuBoss>().target = player;
                 break;
             case 2:
                 //

@@ -162,6 +162,7 @@ MonoBehaviour:
   - {fileID: 601035640656566394, guid: caae5bdf0c78e364d9462a8cc3eb1f7f, type: 3}
   bosses:
   - {fileID: 5416765677904025404, guid: 9019868ba9925a54bb1687839674d6c4, type: 3}
+  - {fileID: 8951280750215111711, guid: 40973d01016de2745ac4fed5d8630de3, type: 3}
 --- !u!4 &330274085
 Transform:
   m_ObjectHideFlags: 0
@@ -11419,7 +11420,7 @@ MonoBehaviour:
   bullet: {fileID: 984152504724513482, guid: 052f1bc5bd688ed429f72ffe39ead183, type: 3}
   attackHitbox: {fileID: 984152504724513482, guid: 5e2b1dbbbbbdec94cb99f6fd6c06cfb5, type: 3}
   type: 0
-  HP: 12
+  HP: 99999
   attackSpeed: 0.5
   animator: {fileID: 1436216870}
   dmgModifierUpgrade: 0
@@ -11464,7 +11465,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 5
   m_Sprite: {fileID: 1492030085, guid: d14715de2bf972f4fa018f4a4516a541, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
