@@ -66,6 +66,7 @@ public class PneuBoss : MonoBehaviour
         if(specialAttackTimerChuj.finished == false && specialAttackTimerChuj.started == true){
             switch(phase) {
             case 0:
+            //Debug.Log("chuuuuuuuuuuuuuuuuuuuuj");
                 PhaseOne();
                 break;
             case 1:
@@ -96,21 +97,23 @@ public class PneuBoss : MonoBehaviour
         }
     }
     private void SpecialAttack(){
-        
-        if(specialAttackTimerChujChuj.started == false) {
+        if(specialAttackTimerChujChuj.started == false && specialAttackTimerChuj.finished == true && specialAttackTimerChujChuj.finished == false) {
+            Debug.Log("kuuuutas");
             specialAttackTimerChujChuj.StartTimer(2);
             animLeft.SetActive(true);
             animBottom.SetActive(true);
             animTop.SetActive(true);
             animRight.SetActive(true);
         }
-        if(specialAttackTimerChujChuj.finished == true && specialAttackTimerChujChuj.started == true){
+        if(specialAttackTimerChujChuj.finished == true){
+            Debug.Log("kuuuutas22222");
             animator.SetBool("attack", false);
             animLeft.SetActive(false);
             animBottom.SetActive(false);
             animTop.SetActive(false);
             animRight.SetActive(false);
             specialAttackTimerChuj.ResetTimer();
+            specialAttackTimerChujChuj.ResetTimer();
             specialAttackTimer.ResetTimer();
             specialAttackTimerChuj.StartTimer(10);
             specialAttackTimer.StartTimer(9);
