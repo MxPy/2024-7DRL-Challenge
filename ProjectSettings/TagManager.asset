@@ -8,6 +8,7 @@ TagManager:
   - EnemyCloseRange
   - EnemyLongRange
   - LevelManager
+  - Door
   layers:
   - Default
   - TransparentFX

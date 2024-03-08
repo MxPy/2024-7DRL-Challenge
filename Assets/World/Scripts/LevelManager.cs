@@ -5,10 +5,11 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] Transform player;
-    [SerializeField] List<GameObject> rooms = new();
+    [SerializeField] List<GameObject>  rooms = new();
     [SerializeField] List<GameObject> enemies = new();
     [SerializeField] List<GameObject> items = new();
     [SerializeField] List<GameObject> bosses = new();
+    GameObject[] doors;
 
     GameObject lastRoom = null;
 
@@ -23,6 +24,14 @@ public class LevelManager : MonoBehaviour
         room.transform.Find("NavMesh").GetComponent<NavMeshPlus.Components.NavMeshSurface>().BuildNavMesh();
         room.transform.parent = lastRoom.transform;
 
+        GameObject[] doors = GameObject.FindGameObjectsWithTag("Door");
+        foreach (GameObject door in doors){
+            door.GetComponent<BoxCollider2D>().enabled = false;
+            door.transform.GetChild(0).gameObject.SetActive(false);
+        }
+        if(enemyId == -1 && itemId == -1 && bossId == -1){
+            OpenDoor();
+        }
         // Im so dumb, for not using OOP
         if(enemyId != -1){
             GameObject enemy = Instantiate(enemies[enemyId]);
@@ -51,6 +60,7 @@ public class LevelManager : MonoBehaviour
         if(itemId != -1){
             GameObject item = Instantiate(items[itemId]);
             item.transform.parent = lastRoom.transform;
+            OpenDoor();
         }
 
         if(bossId != -1){
@@ -70,5 +80,12 @@ public class LevelManager : MonoBehaviour
             }
         }
         lastRoom.transform.position = position;
+    }
+
+    public void OpenDoor(){
+         foreach (GameObject door in doors){
+            door.GetComponent<BoxCollider2D>().enabled = true;
+            door.transform.GetChild(0).gameObject.SetActive(true);
+        }
     }
 }

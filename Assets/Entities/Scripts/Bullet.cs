@@ -17,7 +17,7 @@ public class Bullet : MonoBehaviour
         this.moveSpeed = moveSpeed;
         this.playerOrEnemy = playerOrEnemy;
         //Debug.Log("SETUP:" + shootDir);
-        transform.eulerAngles = new Vector3(0,0, GetAngleFromVectorFloat(shootDir) - 90);
+        transform.eulerAngles = new Vector3(0,0, GetAngleFromVectorFloat(shootDir));
     }
 
     private void Update() {
